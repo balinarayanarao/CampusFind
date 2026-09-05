@@ -4651,3 +4651,277 @@ footer p {
     }
 
 }
+/* =========================================================
+   AUTH / LOGIN PAGE
+   ========================================================= */
+
+.auth-page {
+    min-height: calc(100vh - 150px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 55px 20px;
+    background: #f6f7fb;
+}
+
+.auth-container {
+    width: min(430px, 100%);
+}
+
+.auth-card {
+    padding: 38px;
+    border: 1px solid #e2e5eb;
+    border-radius: 20px;
+    background: #ffffff;
+    box-shadow: 0 15px 40px rgba(17, 24, 39, 0.07);
+}
+
+.auth-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+    border-radius: 13px;
+    background: #f0efff;
+    font-size: 21px;
+}
+
+.auth-label {
+    margin: 0 0 8px;
+    color: #6255e9;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.auth-card h1 {
+    margin: 0 0 9px;
+    color: #151925;
+    font-size: 27px;
+    letter-spacing: -0.6px;
+}
+
+.auth-subtitle {
+    margin: 0 0 28px;
+    color: #858b98;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+
+/* FORM */
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 7px;
+    color: #3d4350;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.form-group input {
+    width: 100%;
+    height: 46px;
+    box-sizing: border-box;
+    padding: 0 13px;
+    border: 1px solid #dfe2e8;
+    border-radius: 9px;
+    outline: none;
+    background: #ffffff;
+    color: #252a36;
+    font-family: inherit;
+    font-size: 12px;
+    transition: .2s;
+}
+
+.form-group input::placeholder {
+    color: #b0b5bf;
+}
+
+.form-group input:focus {
+    border-color: #756bf1;
+    box-shadow: 0 0 0 3px rgba(91, 79, 241, 0.08);
+}
+
+.password-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.password-label a {
+    color: #6255e9;
+    font-size: 9px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+
+/* BUTTON */
+
+.auth-submit {
+    width: 100%;
+    height: 47px;
+    margin-top: 4px;
+    border: none;
+    border-radius: 9px;
+    background: #5b4ff1;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.auth-submit:hover {
+    background: #493dd5;
+    transform: translateY(-2px);
+}
+
+
+/* DIVIDER */
+
+.auth-divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 25px 0 20px;
+    color: #b0b5bf;
+    font-size: 8px;
+    font-weight: 700;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #eceef2;
+}
+
+
+/* BOTTOM */
+
+.auth-bottom {
+    margin: 0;
+    text-align: center;
+    color: #8a909c;
+    font-size: 11px;
+}
+
+.auth-bottom a {
+    color: #5b4ff1;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+
+/* NOTICE */
+
+.auth-notice {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-top: 15px;
+    padding: 14px 16px;
+    border: 1px solid #e4e6ed;
+    border-radius: 11px;
+    background: #ffffff;
+}
+
+.auth-notice > span {
+    font-size: 17px;
+}
+
+.auth-notice p {
+    margin: 0;
+    color: #858b98;
+    font-size: 9px;
+    line-height: 1.6;
+}
+
+.auth-notice strong {
+    color: #4a505d;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 500px) {
+
+    .auth-page {
+        padding: 35px 15px;
+    }
+
+    .auth-card {
+        padding: 28px 22px;
+    }
+
+    .auth-card h1 {
+        font-size: 24px;
+    }
+
+}
+/* =========================================================
+   REGISTER PAGE
+   ========================================================= */
+
+.terms-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    margin: 4px 0 20px;
+}
+
+.terms-row input {
+    width: 14px;
+    height: 14px;
+    margin-top: 1px;
+    accent-color: #5b4ff1;
+    cursor: pointer;
+}
+
+.terms-row label {
+    color: #858b98;
+    font-size: 9px;
+    line-height: 1.5;
+    cursor: pointer;
+}
+
+.terms-row label a {
+    color: #5b4ff1;
+    font-weight: 700;
+}
+
+
+/* REGISTER CARD */
+
+#registerForm .form-group {
+    margin-bottom: 15px;
+}
+
+#registerForm .auth-submit {
+    margin-top: 2px;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 500px) {
+
+    #registerForm .form-group {
+        margin-bottom: 14px;
+    }
+
+    .terms-row {
+        margin-bottom: 18px;
+    }
+
+}
