@@ -20,182 +20,249 @@
         </a>
 
         <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="items.html">Browse Items</a>
             <a href="dashboard.html">Dashboard</a>
-            <a href="items.html" class="active">Browse Items</a>
-            <a href="report.html">Report Item</a>
-            <a href="index.html">Logout</a>
+            <a href="report.html" class="nav-btn">Report Item</a>
         </div>
 
     </nav>
 
 
-    <!-- ITEM DETAILS PAGE -->
+    <!-- PAGE -->
     <main class="details-page">
 
-        <div class="details-wrapper">
-
-            <!-- BACK LINK -->
-            <a href="items.html" class="back-link">
-                ← Back to Browse Items
-            </a>
+        <a href="items.html" class="back-link">
+            ← Back to Browse Items
+        </a>
 
 
-            <!-- DETAILS CARD -->
-            <section class="details-card">
+        <div class="details-container">
 
-                <!-- ITEM VISUAL -->
+            <!-- ITEM VISUAL -->
+            <section class="details-visual">
+
                 <div class="details-image">
                     💻
-                </div>
 
-
-                <!-- INFORMATION -->
-                <div class="details-information">
-
-                    <div class="details-top">
-
-                        <span class="item-status lost-status">
-                            LOST ITEM
-                        </span>
-
-                        <span class="details-date">
-                            Reported 2 days ago
-                        </span>
-
-                    </div>
-
-
-                    <h1>
-                        Black Laptop
-                    </h1>
-
-                    <p class="details-intro">
-                        A black laptop was reported missing
-                        from the Computer Science Block.
-                    </p>
-
-
-                    <!-- INFORMATION GRID -->
-                    <div class="details-info-grid">
-
-                        <div class="detail-info">
-
-                            <span class="detail-label">
-                                CATEGORY
-                            </span>
-
-                            <strong>
-                                Electronics
-                            </strong>
-
-                        </div>
-
-
-                        <div class="detail-info">
-
-                            <span class="detail-label">
-                                LOCATION
-                            </span>
-
-                            <strong>
-                                Computer Science Block
-                            </strong>
-
-                        </div>
-
-
-                        <div class="detail-info">
-
-                            <span class="detail-label">
-                                DATE
-                            </span>
-
-                            <strong>
-                                02 September 2026
-                            </strong>
-
-                        </div>
-
-
-                        <div class="detail-info">
-
-                            <span class="detail-label">
-                                STATUS
-                            </span>
-
-                            <strong class="status-text-lost">
-                                Still Lost
-                            </strong>
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- DESCRIPTION -->
-                    <div class="details-description">
-
-                        <h3>
-                            Description
-                        </h3>
-
-                        <p>
-                            Black laptop with a silver logo
-                            on the back. The laptop was last
-                            seen near the Computer Science
-                            Block. If you have found an item
-                            matching this description, please
-                            contact the reporter.
-                        </p>
-
-                    </div>
-
-
-                    <!-- ACTION -->
-                    <div class="details-action">
-
-                        <div>
-
-                            <h3>
-                                Is this your item?
-                            </h3>
-
-                            <p>
-                                Contact the reporter to help
-                                return the item.
-                            </p>
-
-                        </div>
-
-                        <button
-                            class="contact-btn"
-                            onclick="showContactMessage()"
-                        >
-                            Contact Reporter →
-                        </button>
-
-                    </div>
-
+                    <span class="details-status lost">
+                        LOST ITEM
+                    </span>
                 </div>
 
             </section>
 
 
-            <!-- SAFETY NOTICE -->
-            <div class="details-notice">
+            <!-- ITEM INFORMATION -->
+            <section class="details-content">
 
-                <span>🔒</span>
+                <div class="details-category">
+                    ELECTRONICS
+                </div>
+
+                <h1>
+                    MacBook Charger
+                </h1>
+
+                <p class="details-intro">
+                    White Apple charger reported missing
+                    on campus.
+                </p>
+
+
+                <!-- QUICK INFO -->
+                <div class="details-info-grid">
+
+                    <div class="details-info">
+
+                        <span class="info-icon">
+                            📍
+                        </span>
+
+                        <div>
+                            <small>Last Seen</small>
+                            <strong>Library</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="details-info">
+
+                        <span class="info-icon">
+                            📅
+                        </span>
+
+                        <div>
+                            <small>Date Reported</small>
+                            <strong>September 1, 2026</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="details-info">
+
+                        <span class="info-icon">
+                            🔎
+                        </span>
+
+                        <div>
+                            <small>Status</small>
+                            <strong>Still Missing</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="details-info">
+
+                        <span class="info-icon">
+                            🏷️
+                        </span>
+
+                        <div>
+                            <small>Category</small>
+                            <strong>Electronics</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- DESCRIPTION -->
+                <div class="details-section">
+
+                    <h2>
+                        Description
+                    </h2>
+
+                    <p>
+                        White Apple MacBook charger with a
+                        small sticker near the plug. The charger
+                        was last seen in the library and may have
+                        been left near one of the study tables.
+                    </p>
+
+                </div>
+
+
+                <!-- IDENTIFY -->
+                <div class="details-section identify-box">
+
+                    <div class="identify-icon">
+                        💡
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Think this is yours?
+                        </h3>
+
+                        <p>
+                            If you believe you found this item,
+                            contact the person who reported it
+                            and provide enough information to
+                            verify ownership.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ACTIONS -->
+                <div class="details-actions">
+
+                    <button
+                        type="button"
+                        class="details-primary-btn"
+                        id="contactOwnerBtn"
+                    >
+                        Contact Reporter
+                    </button>
+
+                    <a
+                        href="report.html"
+                        class="details-secondary-btn"
+                    >
+                        Report Similar Item
+                    </a>
+
+                </div>
+
+            </section>
+
+        </div>
+
+
+        <!-- CONTACT CARD -->
+        <section
+            class="contact-panel"
+            id="contactPanel"
+            style="display: none;"
+        >
+
+            <div>
+
+                <p class="small-title">
+                    CONTACT REPORTER
+                </p>
+
+                <h2>
+                    Send an enquiry
+                </h2>
 
                 <p>
-                    <strong>Stay safe:</strong>
-                    Never share passwords, OTPs, bank details,
-                    or other sensitive information while
-                    recovering an item.
+                    Enter your contact details and a short
+                    message. The reporter can use this
+                    information to verify the item.
                 </p>
 
             </div>
 
-        </div>
+
+            <form id="contactForm">
+
+                <div class="contact-form-row">
+
+                    <input
+                        type="text"
+                        id="contactName"
+                        placeholder="Your name"
+                        required
+                    >
+
+                    <input
+                        type="email"
+                        id="contactEmail"
+                        placeholder="Your email"
+                        required
+                    >
+
+                </div>
+
+
+                <textarea
+                    id="contactMessage"
+                    placeholder="Example: I think this may be my charger. I can identify the sticker on it."
+                    rows="4"
+                    required
+                ></textarea>
+
+
+                <button
+                    type="submit"
+                    class="details-primary-btn"
+                >
+                    Send Enquiry →
+                </button>
+
+            </form>
+
+        </section>
 
     </main>
 
@@ -219,18 +286,6 @@
 
 
     <script src="js/app.js"></script>
-
-    <script>
-
-        function showContactMessage() {
-
-            alert(
-                "Contact feature will be connected to the backend soon."
-            );
-
-        }
-
-    </script>
 
 </body>
 
