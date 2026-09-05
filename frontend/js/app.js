@@ -228,3 +228,118 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 });
+/* =====================================================
+   ITEMS PAGE - SEARCH
+   ===================================================== */
+
+function searchItems() {
+
+    const searchInput =
+        document.getElementById("searchInput");
+
+    if (!searchInput) return;
+
+    const searchText =
+        searchInput.value.toLowerCase().trim();
+
+    const items =
+        document.querySelectorAll(".item-card");
+
+    let visibleCount = 0;
+
+    items.forEach(function (item) {
+
+        const itemText =
+            item.dataset.search.toLowerCase();
+
+        if (itemText.includes(searchText)) {
+
+            item.style.display = "";
+
+            visibleCount++;
+
+        } else {
+
+            item.style.display = "none";
+
+        }
+
+    });
+
+    const noResults =
+        document.getElementById("noResults");
+
+    if (noResults) {
+
+        noResults.style.display =
+            visibleCount === 0
+                ? "block"
+                : "none";
+
+    }
+
+}
+
+
+/* =====================================================
+   ITEMS PAGE - FILTER
+   ===================================================== */
+
+function filterItems(status, button) {
+
+    const items =
+        document.querySelectorAll(".item-card");
+
+    let visibleCount = 0;
+
+    items.forEach(function (item) {
+
+        const itemStatus =
+            item.dataset.status;
+
+        if (
+            status === "all" ||
+            itemStatus === status
+        ) {
+
+            item.style.display = "";
+
+            visibleCount++;
+
+        } else {
+
+            item.style.display = "none";
+
+        }
+
+    });
+
+
+    /* Update active filter */
+
+    document
+        .querySelectorAll(".filter-btn")
+        .forEach(function (btn) {
+
+            btn.classList.remove("active-filter");
+
+        });
+
+    button.classList.add("active-filter");
+
+
+    /* No results */
+
+    const noResults =
+        document.getElementById("noResults");
+
+    if (noResults) {
+
+        noResults.style.display =
+            visibleCount === 0
+                ? "block"
+                : "none";
+
+    }
+
+}
