@@ -29,27 +29,29 @@
     </nav>
 
 
-    <!-- DASHBOARD HERO -->
-    <main>
+    <!-- DASHBOARD -->
+    <main class="dashboard-page">
 
-        <section class="dashboard-hero">
+        <!-- WELCOME -->
+        <section class="dashboard-welcome">
 
-            <div class="dashboard-container">
+            <div class="dashboard-wrapper">
 
-                <div class="badge">
-                    🎓 STUDENT DASHBOARD
+                <div>
+                    <p class="dashboard-eyebrow">
+                        STUDENT DASHBOARD
+                    </p>
+
+                    <h1>
+                        Welcome to <span>CampusFind</span>
+                    </h1>
+
+                    <p class="dashboard-subtitle">
+                        Manage your lost and found activity in one place.
+                    </p>
                 </div>
 
-                <h1>
-                    Welcome to <span>CampusFind</span>
-                </h1>
-
-                <p>
-                    Track your reports and help reunite belongings
-                    with their owners.
-                </p>
-
-                <a href="report.html" class="btn primary-btn">
+                <a href="report.html" class="dashboard-report-btn">
                     + Report an Item
                 </a>
 
@@ -59,100 +61,120 @@
 
 
         <!-- STATISTICS -->
-        <section class="stats-section">
+        <section class="dashboard-content">
 
-            <div class="dashboard-container">
+            <div class="dashboard-wrapper">
 
-                <div class="stats-grid">
+                <div class="dashboard-stats">
 
-                    <div class="stat-card">
-                        <div class="stat-icon">📋</div>
-                        <div class="stat-number">0</div>
-                        <div class="stat-label">Total Reports</div>
-                    </div>
+                    <div class="dashboard-stat-card">
 
-                    <div class="stat-card">
-                        <div class="stat-icon">🔴</div>
-                        <div class="stat-number">0</div>
-                        <div class="stat-label">Lost Items</div>
-                    </div>
-
-                    <div class="stat-card">
-                        <div class="stat-icon">🟢</div>
-                        <div class="stat-number">0</div>
-                        <div class="stat-label">Found Items</div>
-                    </div>
-
-                    <div class="stat-card">
-                        <div class="stat-icon">🤝</div>
-                        <div class="stat-number">24/7</div>
-                        <div class="stat-label">Campus Support</div>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- QUICK ACTIONS -->
-        <section class="quick-actions">
-
-            <div class="dashboard-container">
-
-                <div class="section-heading">
-                    <p class="small-title">GET STARTED</p>
-
-                    <h2>Quick Actions</h2>
-
-                    <p>
-                        What would you like to do?
-                    </p>
-                </div>
-
-
-                <div class="action-grid">
-
-                    <!-- REPORT LOST -->
-                    <a href="report.html" class="action-card">
-
-                        <div class="action-icon">
-                            🔎
+                        <div class="dashboard-stat-icon">
+                            📋
                         </div>
 
                         <div>
+                            <span class="dashboard-stat-number">0</span>
+                            <p>Total Reports</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="dashboard-stat-card">
+
+                        <div class="dashboard-stat-icon lost-icon">
+                            🔴
+                        </div>
+
+                        <div>
+                            <span class="dashboard-stat-number">0</span>
+                            <p>Lost Items</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="dashboard-stat-card">
+
+                        <div class="dashboard-stat-icon found-icon">
+                            🟢
+                        </div>
+
+                        <div>
+                            <span class="dashboard-stat-number">0</span>
+                            <p>Found Items</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="dashboard-stat-card">
+
+                        <div class="dashboard-stat-icon">
+                            🤝
+                        </div>
+
+                        <div>
+                            <span class="dashboard-stat-number">0</span>
+                            <p>Items Recovered</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- QUICK ACTIONS -->
+                <div class="dashboard-section-title">
+
+                    <div>
+                        <p>QUICK ACTIONS</p>
+                        <h2>What would you like to do?</h2>
+                    </div>
+
+                </div>
+
+
+                <div class="dashboard-actions">
+
+                    <a href="report.html" class="dashboard-action-card">
+
+                        <div class="dashboard-action-icon">
+                            🔎
+                        </div>
+
+                        <div class="dashboard-action-content">
                             <h3>Report Lost Item</h3>
 
                             <p>
-                                Tell the campus community about
-                                something you lost.
+                                Tell the campus community about an
+                                item you have lost.
                             </p>
 
-                            <span class="action-link">
-                                Report Now →
+                            <span>
+                                Report Lost Item →
                             </span>
                         </div>
 
                     </a>
 
 
-                    <!-- REPORT FOUND -->
-                    <a href="report.html" class="action-card">
+                    <a href="report.html" class="dashboard-action-card">
 
-                        <div class="action-icon">
-                            🎁
+                        <div class="dashboard-action-icon">
+                            📦
                         </div>
 
-                        <div>
+                        <div class="dashboard-action-content">
                             <h3>Report Found Item</h3>
 
                             <p>
-                                Help someone find their lost
-                                belonging.
+                                Help another student recover their
+                                lost belongings.
                             </p>
 
-                            <span class="action-link">
+                            <span>
                                 Report Found Item →
                             </span>
                         </div>
@@ -160,23 +182,22 @@
                     </a>
 
 
-                    <!-- BROWSE -->
-                    <a href="items.html" class="action-card">
+                    <a href="items.html" class="dashboard-action-card">
 
-                        <div class="action-icon">
+                        <div class="dashboard-action-icon">
                             🔍
                         </div>
 
-                        <div>
+                        <div class="dashboard-action-content">
                             <h3>Browse Items</h3>
 
                             <p>
-                                Search through lost and found
-                                belongings on campus.
+                                Search through current lost and
+                                found campus listings.
                             </p>
 
-                            <span class="action-link">
-                                Browse Now →
+                            <span>
+                                Browse Items →
                             </span>
                         </div>
 
@@ -184,36 +205,44 @@
 
                 </div>
 
-            </div>
 
-        </section>
+                <!-- RECENT ACTIVITY -->
+                <section class="recent-section">
 
+                    <div class="recent-header">
 
-        <!-- INFORMATION SECTION -->
-        <section class="dashboard-info">
+                        <div>
+                            <p>ACTIVITY</p>
+                            <h2>Recent Reports</h2>
+                        </div>
 
-            <div class="dashboard-container">
+                        <a href="items.html">
+                            View All →
+                        </a>
 
-                <div class="info-box">
-
-                    <div class="info-icon">
-                        💡
                     </div>
 
-                    <div>
-                        <h3>Found something?</h3>
+
+                    <div class="empty-reports">
+
+                        <div class="empty-icon">
+                            📭
+                        </div>
+
+                        <h3>No reports yet</h3>
 
                         <p>
-                            Reporting a found item can help return
-                            it to its rightful owner quickly.
+                            Your reported lost and found items
+                            will appear here.
                         </p>
 
-                        <a href="report.html">
-                            Report Found Item →
+                        <a href="report.html" class="empty-btn">
+                            Report Your First Item
                         </a>
+
                     </div>
 
-                </div>
+                </section>
 
             </div>
 
