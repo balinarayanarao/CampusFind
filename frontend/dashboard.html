@@ -20,10 +20,10 @@
         </a>
 
         <div class="nav-links">
-            <a href="dashboard.html" class="active">Dashboard</a>
+            <a href="index.html">Home</a>
             <a href="items.html">Browse Items</a>
-            <a href="report.html">Report Item</a>
-            <a href="index.html">Logout</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="report.html" class="nav-btn">Report Item</a>
         </div>
 
     </nav>
@@ -32,83 +32,87 @@
     <!-- DASHBOARD -->
     <main class="dashboard-page">
 
-        <div class="dashboard-container">
+        <!-- HEADER -->
+        <section class="dashboard-header">
 
-            <!-- WELCOME -->
-            <section class="dashboard-welcome">
+            <div>
+                <p class="small-title">YOUR CAMPUS ACTIVITY</p>
+
+                <h1>
+                    Welcome back, <span>Student.</span>
+                </h1>
+
+                <p>
+                    Manage your lost and found reports
+                    from one place.
+                </p>
+            </div>
+
+            <a href="report.html" class="dashboard-report-btn">
+                + Report Item
+            </a>
+
+        </section>
+
+
+        <!-- STATS -->
+        <section class="dashboard-stats">
+
+            <div class="stat-card">
+                <div class="stat-icon">📋</div>
 
                 <div>
-                    <p class="dashboard-label">
-                        STUDENT DASHBOARD
-                    </p>
-
-                    <h1>
-                        Welcome back, Student 👋
-                    </h1>
-
-                    <p>
-                        Keep track of your lost and found
-                        item reports in one place.
-                    </p>
+                    <span>Total Reports</span>
+                    <strong>4</strong>
                 </div>
-
-                <a href="report.html" class="dashboard-report-btn">
-                    + Report Item
-                </a>
-
-            </section>
+            </div>
 
 
-            <!-- STATISTICS -->
-            <section class="dashboard-stats">
+            <div class="stat-card">
+                <div class="stat-icon lost-icon">🔍</div>
 
-                <div class="stat-card">
-                    <div class="stat-icon">📦</div>
-                    <div>
-                        <span>Total Reports</span>
-                        <strong>04</strong>
-                    </div>
+                <div>
+                    <span>Lost Items</span>
+                    <strong>2</strong>
                 </div>
+            </div>
 
-                <div class="stat-card">
-                    <div class="stat-icon">🔍</div>
-                    <div>
-                        <span>Lost Items</span>
-                        <strong>02</strong>
-                    </div>
+
+            <div class="stat-card">
+                <div class="stat-icon found-icon">✓</div>
+
+                <div>
+                    <span>Found Items</span>
+                    <strong>2</strong>
                 </div>
+            </div>
 
-                <div class="stat-card">
-                    <div class="stat-icon">✓</div>
-                    <div>
-                        <span>Found Items</span>
-                        <strong>01</strong>
-                    </div>
+
+            <div class="stat-card">
+                <div class="stat-icon recovered-icon">★</div>
+
+                <div>
+                    <span>Recovered</span>
+                    <strong>1</strong>
                 </div>
+            </div>
 
-                <div class="stat-card">
-                    <div class="stat-icon">🎉</div>
-                    <div>
-                        <span>Recovered</span>
-                        <strong>01</strong>
-                    </div>
-                </div>
-
-            </section>
+        </section>
 
 
-            <!-- RECENT REPORTS -->
-            <section class="dashboard-section">
+        <!-- CONTENT -->
+        <section class="dashboard-content">
 
-                <div class="dashboard-section-heading">
+            <!-- MY REPORTS -->
+            <div class="reports-panel">
+
+                <div class="panel-heading">
 
                     <div>
-                        <p class="dashboard-label">
-                            YOUR ACTIVITY
-                        </p>
+                        <p class="small-title">ACTIVITY</p>
 
                         <h2>
-                            Recent Reports
+                            My Reports
                         </h2>
                     </div>
 
@@ -119,193 +123,214 @@
                 </div>
 
 
-                <div class="reports-table">
+                <!-- REPORT 1 -->
+                <div class="report-row">
 
-                    <!-- TABLE HEADER -->
-                    <div class="report-row report-header">
+                    <div class="report-item-icon">
+                        💻
+                    </div>
 
-                        <span>ITEM</span>
-                        <span>CATEGORY</span>
-                        <span>DATE</span>
-                        <span>STATUS</span>
-                        <span></span>
+                    <div class="report-info">
+
+                        <h3>
+                            MacBook Charger
+                        </h3>
+
+                        <p>
+                            Electronics · Library
+                        </p>
 
                     </div>
 
+                    <span class="dashboard-status lost">
+                        Lost
+                    </span>
 
-                    <!-- REPORT 1 -->
-                    <div class="report-row">
+                    <span class="report-date">
+                        Sep 1
+                    </span>
 
-                        <div class="report-item">
-                            <div class="report-item-icon">
-                                💻
-                            </div>
+                </div>
 
-                            <div>
-                                <strong>
-                                    Black Laptop
-                                </strong>
 
-                                <small>
-                                    Computer Science Block
-                                </small>
-                            </div>
-                        </div>
+                <!-- REPORT 2 -->
+                <div class="report-row">
 
-                        <span>
-                            Electronics
-                        </span>
+                    <div class="report-item-icon">
+                        🎒
+                    </div>
 
-                        <span>
-                            02 Sep 2026
-                        </span>
+                    <div class="report-info">
 
-                        <span class="table-status lost">
-                            Lost
-                        </span>
+                        <h3>
+                            Black Backpack
+                        </h3>
 
-                        <a href="item-details.html">
-                            View
-                        </a>
+                        <p>
+                            Bags · Auditorium
+                        </p>
 
                     </div>
 
+                    <span class="dashboard-status found">
+                        Found
+                    </span>
 
-                    <!-- REPORT 2 -->
-                    <div class="report-row">
+                    <span class="report-date">
+                        Aug 31
+                    </span>
 
-                        <div class="report-item">
-                            <div class="report-item-icon">
-                                🎧
-                            </div>
+                </div>
 
-                            <div>
-                                <strong>
-                                    Wireless Headphones
-                                </strong>
 
-                                <small>
-                                    Library
-                                </small>
-                            </div>
-                        </div>
+                <!-- REPORT 3 -->
+                <div class="report-row">
 
-                        <span>
-                            Electronics
-                        </span>
+                    <div class="report-item-icon">
+                        🔑
+                    </div>
 
-                        <span>
-                            01 Sep 2026
-                        </span>
+                    <div class="report-info">
 
-                        <span class="table-status found">
-                            Found
-                        </span>
+                        <h3>
+                            Hostel Room Keys
+                        </h3>
 
-                        <a href="item-details.html">
-                            View
-                        </a>
+                        <p>
+                            Keys · Hostel Block
+                        </p>
 
                     </div>
 
+                    <span class="dashboard-status lost">
+                        Lost
+                    </span>
 
-                    <!-- REPORT 3 -->
-                    <div class="report-row">
+                    <span class="report-date">
+                        Aug 28
+                    </span>
 
-                        <div class="report-item">
-                            <div class="report-item-icon">
-                                🎒
-                            </div>
+                </div>
 
-                            <div>
-                                <strong>
-                                    Blue Backpack
-                                </strong>
 
-                                <small>
-                                    Main Cafeteria
-                                </small>
-                            </div>
-                        </div>
+                <!-- REPORT 4 -->
+                <div class="report-row">
 
-                        <span>
-                            Bags
-                        </span>
+                    <div class="report-item-icon">
+                        🧥
+                    </div>
 
-                        <span>
-                            30 Aug 2026
-                        </span>
+                    <div class="report-info">
 
-                        <span class="table-status recovered">
-                            Recovered
-                        </span>
+                        <h3>
+                            Blue Hoodie
+                        </h3>
 
-                        <a href="item-details.html">
-                            View
-                        </a>
+                        <p>
+                            Clothing · Student Lounge
+                        </p>
 
+                    </div>
+
+                    <span class="dashboard-status recovered">
+                        Recovered
+                    </span>
+
+                    <span class="report-date">
+                        Aug 27
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- SIDE PANEL -->
+            <aside class="dashboard-side">
+
+                <div class="profile-card">
+
+                    <div class="profile-avatar">
+                        S
+                    </div>
+
+                    <h3>
+                        Student
+                    </h3>
+
+                    <p>
+                        student@college.edu
+                    </p>
+
+                    <div class="profile-divider"></div>
+
+                    <div class="profile-detail">
+                        <span>Campus</span>
+                        <strong>Your College</strong>
+                    </div>
+
+                    <div class="profile-detail">
+                        <span>Member since</span>
+                        <strong>August 2026</strong>
                     </div>
 
                 </div>
 
-            </section>
 
+                <div class="dashboard-tip">
 
-            <!-- QUICK ACTIONS -->
-            <section class="quick-section">
+                    <div class="tip-icon">
+                        💡
+                    </div>
 
-                <p class="dashboard-label">
-                    QUICK ACTIONS
-                </p>
+                    <div>
+                        <h3>
+                            Quick Tip
+                        </h3>
 
-                <div class="quick-actions">
-
-                    <a href="report.html" class="quick-card">
-
-                        <div class="quick-icon">
-                            +
-                        </div>
-
-                        <div>
-                            <h3>
-                                Report an Item
-                            </h3>
-
-                            <p>
-                                Lost or found something?
-                            </p>
-                        </div>
-
-                        <span>→</span>
-
-                    </a>
-
-
-                    <a href="items.html" class="quick-card">
-
-                        <div class="quick-icon">
-                            🔎
-                        </div>
-
-                        <div>
-                            <h3>
-                                Search Items
-                            </h3>
-
-                            <p>
-                                Find items reported on campus.
-                            </p>
-                        </div>
-
-                        <span>→</span>
-
-                    </a>
+                        <p>
+                            Add detailed descriptions and
+                            locations to help others identify
+                            your lost items faster.
+                        </p>
+                    </div>
 
                 </div>
 
-            </section>
+            </aside>
 
-        </div>
+        </section>
+
+
+        <!-- QUICK ACTIONS -->
+        <section class="quick-actions">
+
+            <p class="small-title">
+                QUICK ACTIONS
+            </p>
+
+            <div class="quick-action-grid">
+
+                <a href="report.html" class="quick-action">
+                    <span>+</span>
+                    <div>
+                        <strong>Report an Item</strong>
+                        <small>Lost or found something?</small>
+                    </div>
+                </a>
+
+
+                <a href="items.html" class="quick-action">
+                    <span>⌕</span>
+                    <div>
+                        <strong>Browse Items</strong>
+                        <small>Search campus reports</small>
+                    </div>
+                </a>
+
+            </div>
+
+        </section>
 
     </main>
 
