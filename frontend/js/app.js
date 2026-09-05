@@ -430,3 +430,51 @@ function loadDashboard() {
 /* Load dashboard */
 
 loadDashboard();
+/* =====================================================
+   LOGIN FORM
+   ===================================================== */
+
+const loginForm =
+    document.getElementById("loginForm");
+
+if (loginForm) {
+
+    loginForm.addEventListener("submit", function (event) {
+
+        event.preventDefault();
+
+        const email =
+            document.getElementById("loginEmail").value.trim();
+
+        const password =
+            document.getElementById("loginPassword").value;
+
+        if (!email || !password) {
+
+            alert("Please enter your email and password.");
+
+            return;
+        }
+
+        /*
+         * Temporary frontend login.
+         * Member 1 will connect this to the backend API.
+         */
+
+        localStorage.setItem(
+            "campusFindLoggedIn",
+            "true"
+        );
+
+        localStorage.setItem(
+            "campusFindUserEmail",
+            email
+        );
+
+        alert("✅ Login successful!");
+
+        window.location.href = "dashboard.html";
+
+    });
+
+}
