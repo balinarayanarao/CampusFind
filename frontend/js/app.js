@@ -1,11 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
 
     /* =====================================================
-       CAMPUSFIND - MAIN JAVASCRIPT
-       ===================================================== */
-
-
-    /* =====================================================
        1. BROWSE ITEMS - SEARCH & FILTER
        ===================================================== */
 
@@ -15,25 +10,14 @@ document.addEventListener("DOMContentLoaded", function () {
     const itemsGrid = document.getElementById("itemsGrid");
     const noResults = document.getElementById("noResults");
 
+    if (searchInput && categoryFilter && statusFilter && itemsGrid) {
 
-    // Run only when the Browse Items page is present
-    if (
-        searchInput &&
-        categoryFilter &&
-        statusFilter &&
-        itemsGrid
-    ) {
-
-        const items =
-            itemsGrid.querySelectorAll(".item-card");
-
+        const items = itemsGrid.querySelectorAll(".item-card");
 
         function filterItems() {
 
             const searchValue =
-                searchInput.value
-                    .toLowerCase()
-                    .trim();
+                searchInput.value.toLowerCase().trim();
 
             const categoryValue =
                 categoryFilter.value;
@@ -43,107 +27,170 @@ document.addEventListener("DOMContentLoaded", function () {
 
             let visibleCount = 0;
 
-
             items.forEach(function (item) {
 
                 const itemText =
                     item.textContent.toLowerCase();
 
                 const itemCategory =
-                    item.dataset.category;
+                    item.dataset.category || "all";
 
                 const itemStatus =
-                    item.dataset.status;
+                    item.dataset.status || "all";
 
-
-                // Search match
                 const matchesSearch =
                     itemText.includes(searchValue);
 
-
-                // Category match
                 const matchesCategory =
                     categoryValue === "all" ||
                     itemCategory === categoryValue;
 
-
-                // Status match
                 const matchesStatus =
                     statusValue === "all" ||
                     itemStatus === statusValue;
 
-
-                // Show / hide item
                 if (
                     matchesSearch &&
                     matchesCategory &&
                     matchesStatus
                 ) {
-
                     item.style.display = "";
-
                     visibleCount++;
-
                 } else {
-
                     item.style.display = "none";
-
                 }
 
             });
 
-
-            // Show "No items found"
             if (noResults) {
-
-                if (visibleCount === 0) {
-
-                    noResults.style.display = "block";
-
-                } else {
-
-                    noResults.style.display = "none";
-
-                }
-
+                noResults.style.display =
+                    visibleCount === 0 ? "block" : "none";
             }
-
         }
 
-
-        // Search while typing
         searchInput.addEventListener(
             "input",
             filterItems
         );
 
-
-        // Category filter
         categoryFilter.addEventListener(
             "change",
             filterItems
         );
 
-
-        // Lost / Found filter
         statusFilter.addEventListener(
             "change",
             filterItems
         );
-
     }
 
 
+    /* =====================================================
+       2. LOGIN FORM
+       ===================================================== */
+
+    const loginForm =
+        document.getElementById("loginForm");
+
+    if (loginForm) {
+
+        loginForm.addEventListener(
+            "submit",
+            function (event) {
+
+                event.preventDefault();
+
+                const email =
+                    document.getElementById("email").value.trim();
+
+                const password =
+                    document.getElementById("password").value.trim();
+
+                if (!email || !password) {
+                    alert(
+                        "Please enter your email and password."
+                    );
+                    return;
+                }
+
+                alert("Login successful!");
+
+                window.location.href =
+                    "dashboard.html";
+            }
+        );
+    }
+
 
     /* =====================================================
-       2. REPORT FORM
+       3. REGISTER FORM
+       ===================================================== */
+
+    const registerForm =
+        document.getElementById("registerForm");
+
+    if (registerForm) {
+
+        registerForm.addEventListener(
+            "submit",
+            function (event) {
+
+                event.preventDefault();
+
+                const name =
+                    document.getElementById("name")?.value.trim();
+
+                const email =
+                    document.getElementById("email")?.value.trim();
+
+                const password =
+                    document.getElementById("password")?.value.trim();
+
+                const confirmPassword =
+                    document.getElementById("confirmPassword")?.value.trim();
+
+
+                if (!name || !email || !password) {
+
+                    alert(
+                        "Please fill in all required fields."
+                    );
+
+                    return;
+                }
+
+
+                if (
+                    confirmPassword &&
+                    password !== confirmPassword
+                ) {
+
+                    alert(
+                        "Passwords do not match."
+                    );
+
+                    return;
+                }
+
+
+                alert(
+                    "Account created successfully!"
+                );
+
+                window.location.href =
+                    "login.html";
+
+            }
+        );
+    }
+
+
+    /* =====================================================
+       4. REPORT ITEM FORM
        ===================================================== */
 
     const reportForm =
-        document.querySelector(
-            'form[action="#"]'
-        );
-
+        document.getElementById("reportForm");
 
     if (reportForm) {
 
@@ -153,26 +200,30 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 event.preventDefault();
 
-
                 const itemName =
-                    document.getElementById(
-                        "item-name"
-                    );
+                    document.getElementById("itemName")?.value.trim();
+
+                const description =
+                    document.getElementById("description")?.value.trim();
 
 
-                if (
-                    itemName &&
-                    itemName.value.trim() === ""
-                ) {
+                if (!itemName) {
 
                     alert(
                         "Please enter the item name."
                     );
 
-                    itemName.focus();
+                    return;
+                }
+
+
+                if (!description) {
+
+                    alert(
+                        "Please enter a description."
+                    );
 
                     return;
-
                 }
 
 
@@ -180,18 +231,40 @@ document.addEventListener("DOMContentLoaded", function () {
                     "Your item report has been submitted successfully!"
                 );
 
-
                 reportForm.reset();
 
             }
         );
-
     }
 
 
+    /* =====================================================
+       5. GENERIC FORM SUPPORT
+       ===================================================== */
+
+    const forms =
+        document.querySelectorAll(
+            "form:not(#loginForm):not(#registerForm):not(#reportForm)"
+        );
+
+    forms.forEach(function (form) {
+
+        form.addEventListener(
+            "submit",
+            function (event) {
+
+                /*
+                 * Do not interfere with forms that already
+                 * have their own submit handler.
+                 */
+            }
+        );
+
+    });
+
 
     /* =====================================================
-       3. MOBILE NAVIGATION
+       6. MOBILE NAVIGATION
        ===================================================== */
 
     const navbar =
@@ -203,22 +276,28 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (navbar && navLinks) {
 
-        // Create mobile menu button
-        const menuButton =
-            document.createElement("button");
-
-        menuButton.className =
-            "mobile-menu-btn";
-
-        menuButton.innerHTML = "☰";
-
-        menuButton.setAttribute(
-            "aria-label",
-            "Open navigation menu"
-        );
+        let menuButton =
+            navbar.querySelector(".mobile-menu-btn");
 
 
-        navbar.appendChild(menuButton);
+        if (!menuButton) {
+
+            menuButton =
+                document.createElement("button");
+
+            menuButton.className =
+                "mobile-menu-btn";
+
+            menuButton.innerHTML =
+                "☰";
+
+            menuButton.setAttribute(
+                "aria-label",
+                "Open navigation menu"
+            );
+
+            navbar.appendChild(menuButton);
+        }
 
 
         menuButton.addEventListener(
@@ -233,7 +312,6 @@ document.addEventListener("DOMContentLoaded", function () {
         );
 
 
-        // Close menu after clicking a link
         const links =
             navLinks.querySelectorAll("a");
 
@@ -256,15 +334,58 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
+    /* =====================================================
+       7. ACTIVE NAVIGATION LINK
+       ===================================================== */
+
+    let currentPage =
+        window.location.pathname
+            .split("/")
+            .pop();
+
+
+    if (
+        currentPage === "" ||
+        currentPage === "/"
+    ) {
+        currentPage = "index.html";
+    }
+
+
+    const navigationLinks =
+        document.querySelectorAll(
+            ".nav-links a"
+        );
+
+
+    navigationLinks.forEach(function (link) {
+
+        const href =
+            link.getAttribute("href");
+
+
+        if (!href) return;
+
+
+        const linkPage =
+            href.split("/").pop();
+
+
+        if (linkPage === currentPage) {
+
+            link.classList.add("active");
+
+        }
+
+    });
+
 
     /* =====================================================
-       4. SET CURRENT YEAR
+       8. CURRENT YEAR
        ===================================================== */
 
     const copyright =
-        document.querySelector(
-            ".copyright"
-        );
+        document.querySelector(".copyright");
 
 
     if (copyright) {
@@ -277,39 +398,64 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-
     /* =====================================================
-       5. ACTIVE NAVIGATION LINK
+       9. ITEM DETAILS - CONTACT BUTTON
        ===================================================== */
 
-    const currentPage =
-        window.location.pathname
-            .split("/")
-            .pop();
+    window.showContactMessage =
+        function () {
+
+            alert(
+                "Contact feature will be connected to the backend soon."
+            );
+
+        };
 
 
-    const navigationLinks =
+    /* =====================================================
+       10. SMOOTH SCROLL
+       ===================================================== */
+
+    const smoothLinks =
         document.querySelectorAll(
-            ".nav-links a"
+            'a[href^="#"]'
         );
 
 
-    navigationLinks.forEach(function (link) {
+    smoothLinks.forEach(function (link) {
 
-        const linkPage =
-            link
-                .getAttribute("href")
-                ?.split("/")
-                .pop();
+        link.addEventListener(
+            "click",
+            function (event) {
+
+                const targetId =
+                    link.getAttribute("href");
 
 
-        if (
-            linkPage === currentPage
-        ) {
+                if (
+                    targetId === "#" ||
+                    targetId === ""
+                ) {
+                    return;
+                }
 
-            link.classList.add("active");
 
-        }
+                const target =
+                    document.querySelector(targetId);
+
+
+                if (target) {
+
+                    event.preventDefault();
+
+                    target.scrollIntoView({
+                        behavior: "smooth"
+                    });
+
+                }
+
+            }
+        );
 
     });
 
