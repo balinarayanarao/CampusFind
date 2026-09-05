@@ -10,235 +10,197 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
+<body class="auth-page">
 
-    <!-- NAVBAR -->
-    <nav class="navbar">
+    <div class="auth-container">
 
-        <a href="index.html" class="logo">
-            Campus<span>Find</span>
-        </a>
+        <!-- LEFT SIDE -->
+        <div class="auth-info">
 
-        <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="items.html">Browse Items</a>
-            <a href="login.html">Login</a>
-            <a href="register.html" class="active nav-register">
-                Register
+            <a href="index.html" class="auth-logo">
+                Campus<span>Find</span>
             </a>
-        </div>
 
-    </nav>
+            <div class="auth-info-content">
 
-
-    <!-- REGISTER PAGE -->
-    <main class="auth-page">
-
-        <div class="auth-decoration decoration-one"></div>
-        <div class="auth-decoration decoration-two"></div>
-
-
-        <section class="auth-card">
-
-
-            <!-- LEFT SIDE -->
-            <div class="auth-info">
-
-                <div class="auth-logo">
-                    🎓
-                </div>
-
-                <div class="hero-badge">
-                    ✨ JOIN CAMPUSFIND
+                <div class="auth-badge">
+                    🎓 JOIN YOUR CAMPUS
                 </div>
 
                 <h1>
-                    Join the<br>
-                    <span>Community!</span>
+                    Find It.<br>
+                    <span>Return It.</span>
                 </h1>
 
                 <p>
                     Create your CampusFind account and help make
-                    your campus a better place for everyone.
+                    your college a better place for lost belongings.
                 </p>
-
 
                 <div class="auth-benefits">
 
                     <div>
                         <span>✓</span>
-                        Report lost belongings
+                        Report lost or found items
                     </div>
 
                     <div>
                         <span>✓</span>
-                        Report items you find
+                        Search campus listings
                     </div>
 
                     <div>
                         <span>✓</span>
-                        Connect with campus students
+                        Reconnect belongings with owners
                     </div>
 
                 </div>
 
             </div>
 
+        </div>
 
-            <!-- RIGHT SIDE -->
-            <div class="auth-form-section">
 
-                <div class="auth-heading">
+        <!-- RIGHT SIDE -->
+        <div class="login-card register-card">
 
-                    <h2>Create Account</h2>
+            <div class="login-header">
 
-                    <p>
-                        Register with your college details.
-                    </p>
+                <div class="login-icon">
+                    ✨
+                </div>
+
+                <h2>Create Account</h2>
+
+                <p>
+                    Register using your college details.
+                </p>
+
+            </div>
+
+
+            <form action="#" method="POST">
+
+                <!-- NAME -->
+                <div class="form-group">
+
+                    <label for="name">
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="Enter your full name"
+                        required
+                    >
 
                 </div>
 
 
-                <form id="registerForm">
+                <!-- EMAIL -->
+                <div class="form-group">
+
+                    <label for="email">
+                        College Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="you@college.edu"
+                        required
+                    >
+
+                </div>
 
 
-                    <!-- NAME -->
-                    <div class="form-group">
+                <!-- PASSWORD -->
+                <div class="form-group">
 
-                        <label for="registerName">
-                            Full Name
-                        </label>
+                    <label for="password">
+                        Password
+                    </label>
 
-                        <input
-                            type="text"
-                            id="registerName"
-                            placeholder="Enter your full name"
-                            required
-                        >
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Create a password"
+                        minlength="6"
+                        required
+                    >
 
-                    </div>
-
-
-                    <!-- EMAIL -->
-                    <div class="form-group">
-
-                        <label for="registerEmail">
-                            College Email
-                        </label>
-
-                        <input
-                            type="email"
-                            id="registerEmail"
-                            placeholder="you@college.edu"
-                            required
-                        >
-
-                    </div>
+                </div>
 
 
-                    <!-- PASSWORD -->
-                    <div class="form-group">
+                <!-- CONFIRM PASSWORD -->
+                <div class="form-group">
 
-                        <label for="registerPassword">
-                            Password
-                        </label>
+                    <label for="confirm-password">
+                        Confirm Password
+                    </label>
 
-                        <input
-                            type="password"
-                            id="registerPassword"
-                            placeholder="Create a password"
-                            minlength="6"
-                            required
-                        >
+                    <input
+                        type="password"
+                        id="confirm-password"
+                        name="confirm_password"
+                        placeholder="Re-enter your password"
+                        minlength="6"
+                        required
+                    >
 
-                    </div>
-
-
-                    <!-- CONFIRM PASSWORD -->
-                    <div class="form-group">
-
-                        <label for="confirmPassword">
-                            Confirm Password
-                        </label>
-
-                        <input
-                            type="password"
-                            id="confirmPassword"
-                            placeholder="Re-enter your password"
-                            minlength="6"
-                            required
-                        >
-
-                    </div>
+                </div>
 
 
-                    <!-- TERMS -->
-                    <label class="remember-me">
+                <!-- TERMS -->
+                <div class="remember-row">
+
+                    <label class="remember">
 
                         <input
                             type="checkbox"
-                            id="terms"
                             required
                         >
 
                         <span>
-                            I agree to use CampusFind responsibly.
+                            I agree to the CampusFind terms
                         </span>
 
                     </label>
 
-
-                    <!-- REGISTER -->
-                    <button
-                        type="submit"
-                        class="submit-report-btn auth-submit"
-                    >
-                        Create Account
-                        <span>→</span>
-                    </button>
-
-
-                </form>
-
-
-                <!-- LOGIN -->
-                <div class="auth-switch">
-
-                    <span>
-                        Already have an account?
-                    </span>
-
-                    <a href="login.html">
-                        Sign In
-                    </a>
-
                 </div>
+
+
+                <!-- BUTTON -->
+                <button type="submit" class="login-submit">
+                    Create Account
+                    <span>→</span>
+                </button>
+
+            </form>
+
+
+            <div class="signup-link">
+
+                Already have an account?
+
+                <a href="login.html">
+                    Sign In
+                </a>
 
             </div>
 
-        </section>
 
-    </main>
+            <div class="login-footer">
+                CampusFind • College Lost & Found
+            </div>
 
-
-    <footer>
-
-        <div class="footer-logo">
-            Campus<span>Find</span>
         </div>
 
-        <p>
-            Helping students reunite with their lost belongings.
-        </p>
-
-        <p class="copyright">
-            © 2026 CampusFind. Built for college students.
-        </p>
-
-    </footer>
-
-
-    <script src="js/app.js"></script>
+    </div>
 
 </body>
 

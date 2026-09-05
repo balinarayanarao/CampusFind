@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,42 +9,20 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
+<body class="auth-page">
 
-    <!-- NAVBAR -->
-    <nav class="navbar">
+    <div class="auth-container">
 
-        <a href="index.html" class="logo">
-            Campus<span>Find</span>
-        </a>
+        <!-- LEFT SIDE -->
+        <div class="auth-info">
 
-        <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="items.html">Browse Items</a>
-            <a href="login.html" class="active">Login</a>
-            <a href="register.html" class="nav-register">Register</a>
-        </div>
+            <a href="index.html" class="auth-logo">
+                Campus<span>Find</span>
+            </a>
 
-    </nav>
+            <div class="auth-info-content">
 
-
-    <!-- LOGIN PAGE -->
-    <main class="auth-page">
-
-        <div class="auth-decoration decoration-one"></div>
-        <div class="auth-decoration decoration-two"></div>
-
-
-        <section class="auth-card">
-
-            <!-- LEFT SIDE -->
-            <div class="auth-info">
-
-                <div class="auth-logo">
-                    🔎
-                </div>
-
-                <div class="hero-badge">
+                <div class="auth-badge">
                     🎓 CAMPUS COMMUNITY
                 </div>
 
@@ -58,7 +35,6 @@
                     Sign in to manage your lost and found reports
                     and reconnect with your belongings.
                 </p>
-
 
                 <div class="auth-benefits">
 
@@ -81,133 +57,117 @@
 
             </div>
 
+        </div>
 
-            <!-- RIGHT SIDE -->
-            <div class="auth-form-section">
 
-                <div class="auth-heading">
+        <!-- RIGHT SIDE -->
+        <div class="login-card">
 
-                    <h2>Sign In</h2>
+            <div class="login-header">
 
-                    <p>
-                        Enter your campus account details.
-                    </p>
-
+                <div class="login-icon">
+                    🔐
                 </div>
 
+                <h2>Sign In</h2>
 
-                <form id="loginForm">
-
-
-                    <!-- EMAIL -->
-                    <div class="form-group">
-
-                        <label for="loginEmail">
-                            College Email
-                        </label>
-
-                        <input
-                            type="email"
-                            id="loginEmail"
-                            placeholder="you@college.edu"
-                            required
-                        >
-
-                    </div>
-
-
-                    <!-- PASSWORD -->
-                    <div class="form-group">
-
-                        <div class="label-row">
-
-                            <label for="loginPassword">
-                                Password
-                            </label>
-
-                            <a href="#" class="forgot-link">
-                                Forgot password?
-                            </a>
-
-                        </div>
-
-                        <input
-                            type="password"
-                            id="loginPassword"
-                            placeholder="Enter your password"
-                            required
-                        >
-
-                    </div>
-
-
-                    <!-- REMEMBER -->
-                    <label class="remember-me">
-
-                        <input
-                            type="checkbox"
-                            id="rememberMe"
-                        >
-
-                        <span>
-                            Remember me
-                        </span>
-
-                    </label>
-
-
-                    <!-- LOGIN -->
-                    <button
-                        type="submit"
-                        class="submit-report-btn auth-submit"
-                    >
-                        Sign In
-                        <span>→</span>
-                    </button>
-
-
-                </form>
-
-
-                <!-- REGISTER -->
-                <div class="auth-switch">
-
-                    <span>
-                        Don't have an account?
-                    </span>
-
-                    <a href="register.html">
-                        Create Account
-                    </a>
-
-                </div>
+                <p>
+                    Enter your campus account details.
+                </p>
 
             </div>
 
-        </section>
 
-    </main>
+            <form action="#" method="POST">
+
+                <!-- EMAIL -->
+                <div class="form-group">
+
+                    <label for="email">
+                        College Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="you@college.edu"
+                        required
+                    >
+
+                </div>
 
 
-    <footer>
+                <!-- PASSWORD -->
+                <div class="form-group">
 
-        <div class="footer-logo">
-            Campus<span>Find</span>
+                    <div class="password-label">
+
+                        <label for="password">
+                            Password
+                        </label>
+
+                        <a href="#">
+                            Forgot password?
+                        </a>
+
+                    </div>
+
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Enter your password"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- REMEMBER -->
+                <div class="remember-row">
+
+                    <label class="remember">
+
+                        <input
+                            type="checkbox"
+                            name="remember"
+                        >
+
+                        <span>Remember me</span>
+
+                    </label>
+
+                </div>
+
+
+                <!-- BUTTON -->
+                <button type="submit" class="login-submit">
+                    Sign In
+                    <span>→</span>
+                </button>
+
+            </form>
+
+
+            <div class="signup-link">
+
+                Don't have an account?
+
+                <a href="register.html">
+                    Create Account
+                </a>
+
+            </div>
+
+
+            <div class="login-footer">
+                CampusFind • College Lost & Found
+            </div>
+
         </div>
 
-        <p>
-            Helping students reunite with their lost belongings.
-        </p>
-
-        <p class="copyright">
-            © 2026 CampusFind. Built for college students.
-        </p>
-
-    </footer>
-
-
-    <script src="js/app.js"></script>
+    </div>
 
 </body>
-
 </html>
