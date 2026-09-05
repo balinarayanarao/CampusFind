@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Item Details | CampusFind</title>
+    <title>Browse Items | CampusFind</title>
 
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -23,251 +23,445 @@
             <a href="dashboard.html">Dashboard</a>
             <a href="items.html" class="active">Browse Items</a>
             <a href="report.html">Report Item</a>
-            <a href="login.html">Logout</a>
+            <a href="index.html">Logout</a>
         </div>
 
     </nav>
 
 
-    <!-- MAIN -->
-    <main class="page-container">
+    <!-- PAGE HEADER -->
+    <main class="items-page">
 
-        <!-- BACK -->
-        <a
-            href="items.html"
-            style="
-                display:inline-flex;
-                align-items:center;
-                gap:8px;
-                color:#4f46e5;
-                font-weight:700;
-                font-size:14px;
-                margin-bottom:25px;
-            "
-        >
-            ← Back to Items
-        </a>
+        <section class="items-header">
+
+            <div class="items-wrapper">
+
+                <p class="items-eyebrow">
+                    CAMPUS LOST & FOUND
+                </p>
+
+                <h1>
+                    Find What You've <span>Lost</span>
+                </h1>
+
+                <p>
+                    Search through items reported by students
+                    across your campus.
+                </p>
+
+            </div>
+
+        </section>
 
 
-        <!-- DETAILS CARD -->
-        <section
-            class="card"
-            style="
-                max-width:1000px;
-                margin:auto;
-                padding:0;
-                overflow:hidden;
-            "
-        >
+        <!-- SEARCH AREA -->
+        <section class="items-content">
 
-            <div
-                style="
-                    display:grid;
-                    grid-template-columns:1fr 1fr;
-                "
-            >
+            <div class="items-wrapper">
 
-                <!-- IMAGE -->
-                <div
-                    style="
-                        min-height:430px;
-                        display:flex;
-                        align-items:center;
-                        justify-content:center;
-                        background:linear-gradient(135deg,#eeeeff,#f8f7ff);
-                        font-size:130px;
-                    "
-                >
-                    👛
+                <div class="search-panel">
+
+                    <div class="search-box">
+
+                        <span>⌕</span>
+
+                        <input
+                            type="text"
+                            id="searchInput"
+                            placeholder="Search for an item..."
+                        >
+
+                    </div>
+
+
+                    <select id="categoryFilter">
+
+                        <option value="all">
+                            All Categories
+                        </option>
+
+                        <option value="electronics">
+                            Electronics
+                        </option>
+
+                        <option value="documents">
+                            Documents / ID
+                        </option>
+
+                        <option value="wallet">
+                            Wallet / Money
+                        </option>
+
+                        <option value="keys">
+                            Keys
+                        </option>
+
+                        <option value="bags">
+                            Bags
+                        </option>
+
+                        <option value="clothing">
+                            Clothing
+                        </option>
+
+                        <option value="books">
+                            Books / Notes
+                        </option>
+
+                    </select>
+
+
+                    <select id="statusFilter">
+
+                        <option value="all">
+                            Lost & Found
+                        </option>
+
+                        <option value="lost">
+                            Lost Items
+                        </option>
+
+                        <option value="found">
+                            Found Items
+                        </option>
+
+                    </select>
+
                 </div>
 
 
-                <!-- DETAILS -->
-                <div style="padding:40px;">
+                <!-- RESULTS HEADER -->
 
-                    <span class="badge badge-lost">
-                        🔴 LOST ITEM
-                    </span>
+                <div class="items-results-header">
+
+                    <div>
+                        <h2>Recent Reports</h2>
+                        <p>Items recently reported by students</p>
+                    </div>
+
+                    <a href="report.html" class="items-report-btn">
+                        + Report Item
+                    </a>
+
+                </div>
 
 
-                    <h1
-                        style="
-                            margin:18px 0 8px;
-                            color:#172033;
-                            font-size:36px;
-                        "
+                <!-- ITEMS GRID -->
+
+                <div class="items-grid" id="itemsGrid">
+
+
+                    <!-- ITEM 1 -->
+
+                    <article
+                        class="item-card"
+                        data-category="electronics"
+                        data-status="lost"
                     >
-                        Black Wallet
-                    </h1>
+
+                        <div class="item-image electronics-image">
+                            💻
+                        </div>
+
+                        <div class="item-card-body">
+
+                            <div class="item-card-top">
+
+                                <span class="item-status lost-status">
+                                    LOST
+                                </span>
+
+                                <span class="item-date">
+                                    2 days ago
+                                </span>
+
+                            </div>
+
+                            <h3>Black Laptop</h3>
+
+                            <p class="item-description">
+                                Black laptop with a silver logo
+                                on the back.
+                            </p>
+
+                            <div class="item-location">
+                                📍 Computer Science Block
+                            </div>
+
+                            <a
+                                href="item-details.html"
+                                class="view-item-btn"
+                            >
+                                View Details →
+                            </a>
+
+                        </div>
+
+                    </article>
 
 
-                    <p
-                        style="
-                            color:#68758a;
-                            margin-bottom:30px;
-                        "
+                    <!-- ITEM 2 -->
+
+                    <article
+                        class="item-card"
+                        data-category="wallet"
+                        data-status="found"
                     >
-                        Reported by a campus student
+
+                        <div class="item-image wallet-image">
+                            👛
+                        </div>
+
+                        <div class="item-card-body">
+
+                            <div class="item-card-top">
+
+                                <span class="item-status found-status">
+                                    FOUND
+                                </span>
+
+                                <span class="item-date">
+                                    3 days ago
+                                </span>
+
+                            </div>
+
+                            <h3>Brown Wallet</h3>
+
+                            <p class="item-description">
+                                Brown leather wallet found near
+                                the college cafeteria.
+                            </p>
+
+                            <div class="item-location">
+                                📍 Main Cafeteria
+                            </div>
+
+                            <a
+                                href="item-details.html"
+                                class="view-item-btn"
+                            >
+                                View Details →
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- ITEM 3 -->
+
+                    <article
+                        class="item-card"
+                        data-category="keys"
+                        data-status="lost"
+                    >
+
+                        <div class="item-image keys-image">
+                            🔑
+                        </div>
+
+                        <div class="item-card-body">
+
+                            <div class="item-card-top">
+
+                                <span class="item-status lost-status">
+                                    LOST
+                                </span>
+
+                                <span class="item-date">
+                                    4 days ago
+                                </span>
+
+                            </div>
+
+                            <h3>Keychain</h3>
+
+                            <p class="item-description">
+                                Small silver keychain with three
+                                keys attached.
+                            </p>
+
+                            <div class="item-location">
+                                📍 Library
+                            </div>
+
+                            <a
+                                href="item-details.html"
+                                class="view-item-btn"
+                            >
+                                View Details →
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- ITEM 4 -->
+
+                    <article
+                        class="item-card"
+                        data-category="documents"
+                        data-status="found"
+                    >
+
+                        <div class="item-image document-image">
+                            🪪
+                        </div>
+
+                        <div class="item-card-body">
+
+                            <div class="item-card-top">
+
+                                <span class="item-status found-status">
+                                    FOUND
+                                </span>
+
+                                <span class="item-date">
+                                    5 days ago
+                                </span>
+
+                            </div>
+
+                            <h3>Student ID Card</h3>
+
+                            <p class="item-description">
+                                Student identification card found
+                                near Block B.
+                            </p>
+
+                            <div class="item-location">
+                                📍 Block B
+                            </div>
+
+                            <a
+                                href="item-details.html"
+                                class="view-item-btn"
+                            >
+                                View Details →
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- ITEM 5 -->
+
+                    <article
+                        class="item-card"
+                        data-category="bags"
+                        data-status="lost"
+                    >
+
+                        <div class="item-image bag-image">
+                            🎒
+                        </div>
+
+                        <div class="item-card-body">
+
+                            <div class="item-card-top">
+
+                                <span class="item-status lost-status">
+                                    LOST
+                                </span>
+
+                                <span class="item-date">
+                                    1 week ago
+                                </span>
+
+                            </div>
+
+                            <h3>Blue Backpack</h3>
+
+                            <p class="item-description">
+                                Navy blue backpack containing
+                                notebooks and stationery.
+                            </p>
+
+                            <div class="item-location">
+                                📍 Seminar Hall
+                            </div>
+
+                            <a
+                                href="item-details.html"
+                                class="view-item-btn"
+                            >
+                                View Details →
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- ITEM 6 -->
+
+                    <article
+                        class="item-card"
+                        data-category="books"
+                        data-status="found"
+                    >
+
+                        <div class="item-image books-image">
+                            📚
+                        </div>
+
+                        <div class="item-card-body">
+
+                            <div class="item-card-top">
+
+                                <span class="item-status found-status">
+                                    FOUND
+                                </span>
+
+                                <span class="item-date">
+                                    1 week ago
+                                </span>
+
+                            </div>
+
+                            <h3>Engineering Notebook</h3>
+
+                            <p class="item-description">
+                                Blue engineering notebook with
+                                handwritten notes.
+                            </p>
+
+                            <div class="item-location">
+                                📍 Mechanical Block
+                            </div>
+
+                            <a
+                                href="item-details.html"
+                                class="view-item-btn"
+                            >
+                                View Details →
+                            </a>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+
+                <!-- NO RESULTS -->
+
+                <div
+                    class="no-results"
+                    id="noResults"
+                    style="display:none;"
+                >
+
+                    <div>🔎</div>
+
+                    <h3>No items found</h3>
+
+                    <p>
+                        Try changing your search or filters.
                     </p>
-
-
-                    <!-- INFO -->
-                    <div
-                        style="
-                            display:flex;
-                            flex-direction:column;
-                            gap:18px;
-                        "
-                    >
-
-                        <div
-                            style="
-                                display:flex;
-                                gap:15px;
-                                align-items:center;
-                            "
-                        >
-
-                            <div
-                                style="
-                                    width:42px;
-                                    height:42px;
-                                    display:flex;
-                                    align-items:center;
-                                    justify-content:center;
-                                    border-radius:10px;
-                                    background:#f0efff;
-                                "
-                            >
-                                🏷️
-                            </div>
-
-                            <div>
-                                <small style="color:#94a3b8;">
-                                    Category
-                                </small>
-
-                                <p style="font-weight:700;">
-                                    Wallet / ID
-                                </p>
-                            </div>
-
-                        </div>
-
-
-                        <div
-                            style="
-                                display:flex;
-                                gap:15px;
-                                align-items:center;
-                            "
-                        >
-
-                            <div
-                                style="
-                                    width:42px;
-                                    height:42px;
-                                    display:flex;
-                                    align-items:center;
-                                    justify-content:center;
-                                    border-radius:10px;
-                                    background:#eefaf6;
-                                "
-                            >
-                                📍
-                            </div>
-
-                            <div>
-                                <small style="color:#94a3b8;">
-                                    Last Seen Location
-                                </small>
-
-                                <p style="font-weight:700;">
-                                    Library, Block A
-                                </p>
-                            </div>
-
-                        </div>
-
-
-                        <div
-                            style="
-                                display:flex;
-                                gap:15px;
-                                align-items:center;
-                            "
-                        >
-
-                            <div
-                                style="
-                                    width:42px;
-                                    height:42px;
-                                    display:flex;
-                                    align-items:center;
-                                    justify-content:center;
-                                    border-radius:10px;
-                                    background:#fff5e8;
-                                "
-                            >
-                                📅
-                            </div>
-
-                            <div>
-                                <small style="color:#94a3b8;">
-                                    Date Reported
-                                </small>
-
-                                <p style="font-weight:700;">
-                                    September 2, 2026
-                                </p>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- DESCRIPTION -->
-                    <div
-                        style="
-                            margin-top:30px;
-                            padding:18px;
-                            border-radius:12px;
-                            background:#f8f9fc;
-                        "
-                    >
-
-                        <h3
-                            style="
-                                margin-bottom:7px;
-                                font-size:15px;
-                            "
-                        >
-                            Description
-                        </h3>
-
-                        <p
-                            style="
-                                color:#68758a;
-                                font-size:14px;
-                            "
-                        >
-                            Black leather wallet with a small
-                            college ID card inside. Last seen near
-                            the library entrance.
-                        </p>
-
-                    </div>
-
-
-                    <!-- ACTION -->
-                    <button
-                        class="submit-report-btn"
-                        style="margin-top:25px;"
-                        onclick="contactReporter()"
-                    >
-                        📩 Contact About This Item
-                    </button>
 
                 </div>
 
@@ -275,39 +469,11 @@
 
         </section>
 
-
-        <!-- SAFETY -->
-        <div
-            class="dashboard-tip"
-            style="
-                max-width:1000px;
-                margin:25px auto 0;
-            "
-        >
-
-            <div class="tip-icon">
-                🛡️
-            </div>
-
-            <div>
-
-                <h3>
-                    Stay Safe
-                </h3>
-
-                <p>
-                    Meet in a public campus location and never
-                    share passwords, OTPs or financial information.
-                </p>
-
-            </div>
-
-        </div>
-
     </main>
 
 
     <!-- FOOTER -->
+
     <footer>
 
         <div class="footer-logo">
@@ -315,11 +481,11 @@
         </div>
 
         <p>
-            Helping students reunite with their lost belongings.
+            College Lost & Found Platform
         </p>
 
         <p class="copyright">
-            © 2026 CampusFind. Built for college students.
+            © 2026 CampusFind. All rights reserved.
         </p>
 
     </footer>
