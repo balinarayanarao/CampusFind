@@ -4,231 +4,234 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Item Details | CampusFind</title>
+
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-<nav class="navbar">
+    <!-- NAVBAR -->
+    <nav class="navbar">
 
-    <a href="index.html" class="logo">
-        Campus<span>Find</span>
-    </a>
+        <a href="index.html" class="logo">
+            Campus<span>Find</span>
+        </a>
 
-    <div class="nav-links">
-        <a href="dashboard.html">Dashboard</a>
-        <a href="items.html" class="active">Browse Items</a>
-        <a href="report.html">Report Item</a>
-        <a href="login.html">Logout</a>
-    </div>
+        <div class="nav-links">
+            <a href="dashboard.html">Dashboard</a>
+            <a href="items.html" class="active">Browse Items</a>
+            <a href="report.html">Report Item</a>
+            <a href="index.html">Logout</a>
+        </div>
 
-</nav>
-
-
-<main class="page-container">
-
-    <a href="items.html"
-       style="display:inline-flex;align-items:center;gap:8px;color:#4f46e5;font-weight:700;margin-bottom:25px;">
-        ← Back to Items
-    </a>
+    </nav>
 
 
-    <section class="card"
-             style="max-width:1000px;margin:auto;padding:0;overflow:hidden;">
+    <!-- ITEM DETAILS PAGE -->
+    <main class="details-page">
 
-        <div style="display:grid;grid-template-columns:1fr 1fr;">
+        <div class="details-wrapper">
 
-            <!-- IMAGE -->
-            <div style="
-                min-height:430px;
-                display:flex;
-                align-items:center;
-                justify-content:center;
-                background:linear-gradient(135deg,#eeeeff,#f8f7ff);
-                font-size:130px;
-            ">
-                👛
-            </div>
+            <!-- BACK LINK -->
+            <a href="items.html" class="back-link">
+                ← Back to Browse Items
+            </a>
 
 
-            <!-- DETAILS -->
-            <div style="padding:40px;">
+            <!-- DETAILS CARD -->
+            <section class="details-card">
 
-                <span class="badge badge-lost">
-                    🔴 LOST ITEM
-                </span>
-
-                <h1 style="margin:18px 0 8px;color:#172033;font-size:36px;">
-                    Black Wallet
-                </h1>
-
-                <p style="color:#68758a;margin-bottom:30px;">
-                    Reported by a campus student
-                </p>
-
-
-                <div style="display:flex;flex-direction:column;gap:18px;">
-
-                    <div style="display:flex;gap:15px;align-items:center;">
-
-                        <div style="
-                            width:42px;
-                            height:42px;
-                            display:flex;
-                            align-items:center;
-                            justify-content:center;
-                            border-radius:10px;
-                            background:#f0efff;
-                        ">
-                            🏷️
-                        </div>
-
-                        <div>
-                            <small style="color:#94a3b8;">
-                                Category
-                            </small>
-
-                            <p style="font-weight:700;">
-                                Wallet / ID
-                            </p>
-                        </div>
-
-                    </div>
-
-
-                    <div style="display:flex;gap:15px;align-items:center;">
-
-                        <div style="
-                            width:42px;
-                            height:42px;
-                            display:flex;
-                            align-items:center;
-                            justify-content:center;
-                            border-radius:10px;
-                            background:#eefaf6;
-                        ">
-                            📍
-                        </div>
-
-                        <div>
-                            <small style="color:#94a3b8;">
-                                Last Seen Location
-                            </small>
-
-                            <p style="font-weight:700;">
-                                Library, Block A
-                            </p>
-                        </div>
-
-                    </div>
-
-
-                    <div style="display:flex;gap:15px;align-items:center;">
-
-                        <div style="
-                            width:42px;
-                            height:42px;
-                            display:flex;
-                            align-items:center;
-                            justify-content:center;
-                            border-radius:10px;
-                            background:#fff5e8;
-                        ">
-                            📅
-                        </div>
-
-                        <div>
-                            <small style="color:#94a3b8;">
-                                Date Reported
-                            </small>
-
-                            <p style="font-weight:700;">
-                                September 2, 2026
-                            </p>
-                        </div>
-
-                    </div>
-
+                <!-- ITEM VISUAL -->
+                <div class="details-image">
+                    💻
                 </div>
 
 
-                <!-- DESCRIPTION -->
-                <div style="
-                    margin-top:30px;
-                    padding:18px;
-                    border-radius:12px;
-                    background:#f8f9fc;
-                ">
+                <!-- INFORMATION -->
+                <div class="details-information">
 
-                    <h3 style="margin-bottom:7px;font-size:15px;">
-                        Description
-                    </h3>
+                    <div class="details-top">
 
-                    <p style="color:#68758a;font-size:14px;">
-                        Black leather wallet with a small college ID
-                        card inside. Last seen near the library entrance.
+                        <span class="item-status lost-status">
+                            LOST ITEM
+                        </span>
+
+                        <span class="details-date">
+                            Reported 2 days ago
+                        </span>
+
+                    </div>
+
+
+                    <h1>
+                        Black Laptop
+                    </h1>
+
+                    <p class="details-intro">
+                        A black laptop was reported missing
+                        from the Computer Science Block.
                     </p>
 
+
+                    <!-- INFORMATION GRID -->
+                    <div class="details-info-grid">
+
+                        <div class="detail-info">
+
+                            <span class="detail-label">
+                                CATEGORY
+                            </span>
+
+                            <strong>
+                                Electronics
+                            </strong>
+
+                        </div>
+
+
+                        <div class="detail-info">
+
+                            <span class="detail-label">
+                                LOCATION
+                            </span>
+
+                            <strong>
+                                Computer Science Block
+                            </strong>
+
+                        </div>
+
+
+                        <div class="detail-info">
+
+                            <span class="detail-label">
+                                DATE
+                            </span>
+
+                            <strong>
+                                02 September 2026
+                            </strong>
+
+                        </div>
+
+
+                        <div class="detail-info">
+
+                            <span class="detail-label">
+                                STATUS
+                            </span>
+
+                            <strong class="status-text-lost">
+                                Still Lost
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- DESCRIPTION -->
+                    <div class="details-description">
+
+                        <h3>
+                            Description
+                        </h3>
+
+                        <p>
+                            Black laptop with a silver logo
+                            on the back. The laptop was last
+                            seen near the Computer Science
+                            Block. If you have found an item
+                            matching this description, please
+                            contact the reporter.
+                        </p>
+
+                    </div>
+
+
+                    <!-- ACTION -->
+                    <div class="details-action">
+
+                        <div>
+
+                            <h3>
+                                Is this your item?
+                            </h3>
+
+                            <p>
+                                Contact the reporter to help
+                                return the item.
+                            </p>
+
+                        </div>
+
+                        <button
+                            class="contact-btn"
+                            onclick="showContactMessage()"
+                        >
+                            Contact Reporter →
+                        </button>
+
+                    </div>
+
                 </div>
 
+            </section>
 
-                <button
-                    class="submit-report-btn"
-                    style="margin-top:25px;"
-                    onclick="contactReporter()"
-                >
-                    📩 Contact About This Item
-                </button>
+
+            <!-- SAFETY NOTICE -->
+            <div class="details-notice">
+
+                <span>🔒</span>
+
+                <p>
+                    <strong>Stay safe:</strong>
+                    Never share passwords, OTPs, bank details,
+                    or other sensitive information while
+                    recovering an item.
+                </p>
 
             </div>
 
         </div>
 
-    </section>
+    </main>
 
 
-    <div class="dashboard-tip"
-         style="max-width:1000px;margin:25px auto 0;">
+    <!-- FOOTER -->
+    <footer>
 
-        <div class="tip-icon">
-            🛡️
+        <div class="footer-logo">
+            Campus<span>Find</span>
         </div>
 
-        <div>
+        <p>
+            College Lost & Found Platform
+        </p>
 
-            <h3>Stay Safe</h3>
+        <p class="copyright">
+            © 2026 CampusFind. All rights reserved.
+        </p>
 
-            <p>
-                Meet in a public campus location and never share
-                passwords, OTPs or financial information.
-            </p>
-
-        </div>
-
-    </div>
-
-</main>
+    </footer>
 
 
-<footer>
+    <script src="js/app.js"></script>
 
-    <div class="footer-logo">
-        Campus<span>Find</span>
-    </div>
+    <script>
 
-    <p>
-        Helping students reunite with their lost belongings.
-    </p>
+        function showContactMessage() {
 
-    <p class="copyright">
-        © 2026 CampusFind. Built for college students.
-    </p>
+            alert(
+                "Contact feature will be connected to the backend soon."
+            );
 
-</footer>
+        }
 
-
-<script src="js/app.js"></script>
+    </script>
 
 </body>
+
 </html>
