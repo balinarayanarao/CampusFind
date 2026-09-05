@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Report an Item | CampusFind</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav class="navbar">
+
+        <a href="index.html" class="logo">
+            🎓 Campus<span>Find</span>
+        </a>
+
+        <div class="nav-links">
+
+            <a href="dashboard.html">Dashboard</a>
+
+            <a href="items.html">🔍 Browse Items</a>
+
+            <a href="report.html" class="active">
+                📝 Report Item
+            </a>
+
+            <a href="index.html">↪ Logout</a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="report-hero">
+
+        <div class="hero-decoration decoration-one"></div>
+        <div class="hero-decoration decoration-two"></div>
+
+        <div class="hero-content">
+
+            <div class="hero-badge">
+                ✨ HELP REUNITE BELONGINGS
+            </div>
+
+            <h1>
+                Report an
+                <span>Item</span>
+            </h1>
+
+            <p>
+                Help someone find what they lost.
+                Every report brings our campus community closer together.
+            </p>
+
+        </div>
+
+
+        <!-- Illustration -->
+
+        <div class="campus-illustration">
+
+            <div class="sun"></div>
+
+            <div class="hill hill-one"></div>
+            <div class="hill hill-two"></div>
+
+            <div class="sign-board">
+                <div>LOST</div>
+                <div>↓</div>
+                <div>FOUND</div>
+            </div>
+
+            <div class="flower flower-one">✿</div>
+            <div class="flower flower-two">✿</div>
+            <div class="flower flower-three">✿</div>
+
+            <div class="illustration-text">
+                Every item has a story.
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main class="report-container">
+
+
+        <!-- ================= FORM CARD ================= -->
+
+        <section class="report-form-card">
+
+            <div class="form-card-header">
+
+                <div class="form-icon">
+                    📝
+                </div>
+
+                <div>
+
+                    <h2>Report an Item</h2>
+
+                    <p>
+                        Fill in the details below
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <form id="reportForm">
+
+
+                <!-- ITEM STATUS -->
+
+                <div class="form-group">
+
+                    <label>
+                        Item Status
+                        <span class="required">*</span>
+                    </label>
+
+                    <p class="field-hint">
+                        Let us know if you lost an item or found one.
+                    </p>
+
+
+                    <div class="status-options">
+
+
+                        <label class="status-option lost-option">
+
+                            <input
+                                type="radio"
+                                name="status"
+                                value="lost"
+                                checked
+                            >
+
+                            <div class="status-content">
+
+                                <div class="status-circle lost-circle">
+                                    !
+                                </div>
+
+                                <div>
+                                    <strong>I Lost Something</strong>
+
+                                    <small>
+                                        Help me find it
+                                    </small>
+                                </div>
+
+                            </div>
+
+                        </label>
+
+
+                        <label class="status-option found-option">
+
+                            <input
+                                type="radio"
+                                name="status"
+                                value="found"
+                            >
+
+                            <div class="status-content">
+
+                                <div class="status-circle found-circle">
+                                    ✓
+                                </div>
+
+                                <div>
+                                    <strong>I Found Something</strong>
+
+                                    <small>
+                                        Help return it
+                                    </small>
+                                </div>
+
+                            </div>
+
+                        </label>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ITEM NAME -->
+
+                <div class="form-group">
+
+                    <label for="itemName">
+                        🏷️ Item Name
+                        <span class="required">*</span>
+                    </label>
+
+                    <input
+                        type="text"
+                        id="itemName"
+                        name="itemName"
+                        placeholder="Example: Black Wallet"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- CATEGORY -->
+
+                <div class="form-group">
+
+                    <label for="category">
+                        ▦ Category
+                        <span class="required">*</span>
+                    </label>
+
+                    <select
+                        id="category"
+                        name="category"
+                        required
+                    >
+
+                        <option value="">
+                            Select a category
+                        </option>
+
+                        <option value="electronics">
+                            Electronics
+                        </option>
+
+                        <option value="documents">
+                            Documents / ID
+                        </option>
+
+                        <option value="wallet">
+                            Wallet / Money
+                        </option>
+
+                        <option value="keys">
+                            Keys
+                        </option>
+
+                        <option value="books">
+                            Books / Notes
+                        </option>
+
+                        <option value="clothing">
+                            Clothing
+                        </option>
+
+                        <option value="accessories">
+                            Accessories
+                        </option>
+
+                        <option value="other">
+                            Other
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- LOCATION -->
+
+                <div class="form-group">
+
+                    <label for="location">
+                        📍 Location
+                        <span class="required">*</span>
+                    </label>
+
+                    <input
+                        type="text"
+                        id="location"
+                        name="location"
+                        placeholder="Example: Library, Block A, Cafeteria"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- DATE -->
+
+                <div class="form-group">
+
+                    <label for="date">
+                        📅 Date
+                        <span class="required">*</span>
+                    </label>
+
+                    <input
+                        type="date"
+                        id="date"
+                        name="date"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- DESCRIPTION -->
+
+                <div class="form-group">
+
+                    <div class="label-row">
+
+                        <label for="description">
+                            📄 Description
+                            <span class="required">*</span>
+                        </label>
+
+                        <span id="characterCount">
+                            0/300
+                        </span>
+
+                    </div>
+
+                    <textarea
+                        id="description"
+                        name="description"
+                        rows="5"
+                        maxlength="300"
+                        placeholder="Describe the item, its color, brand, identifying marks, etc."
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <!-- IMAGE -->
+
+                <div class="form-group">
+
+                    <label for="image">
+                        🖼️ Item Image
+                        <span class="optional">
+                            (Optional)
+                        </span>
+                    </label>
+
+                    <label class="upload-box">
+
+                        <input
+                            type="file"
+                            id="image"
+                            name="image"
+                            accept="image/png,image/jpeg,image/jpg"
+                        >
+
+                        <div class="upload-icon">
+                            ☁
+                        </div>
+
+                        <strong>
+                            Click to upload an image
+                        </strong>
+
+                        <small>
+                            PNG, JPG, JPEG · Max 5MB
+                        </small>
+
+                    </label>
+
+                </div>
+
+
+                <!-- SUBMIT -->
+
+                <button
+                    type="submit"
+                    class="submit-report-btn"
+                >
+
+                    <span>➤</span>
+
+                    Submit Report
+
+                </button>
+
+
+            </form>
+
+        </section>
+
+
+        <!-- ================= SIDEBAR ================= -->
+
+        <aside class="report-sidebar">
+
+
+            <!-- WHY REPORT -->
+
+            <div class="side-card why-card">
+
+                <div class="side-card-title">
+
+                    <div class="side-icon purple-icon">
+                        💡
+                    </div>
+
+                    <div>
+
+                        <h3>Why Report?</h3>
+
+                        <p>
+                            Your report can help a fellow student
+                            get their belongings back!
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="benefit-list">
+
+                    <div class="benefit">
+                        <span>👥</span>
+                        <p>Build a helpful campus community</p>
+                    </div>
+
+                    <div class="benefit">
+                        <span>🛡️</span>
+                        <p>Reduce lost and found items</p>
+                    </div>
+
+                    <div class="benefit">
+                        <span>💗</span>
+                        <p>Make campus a safer place</p>
+                    </div>
+
+                </div>
+
+
+                <div class="side-message">
+                    Together for a Better Campus ✨
+                </div>
+
+            </div>
+
+
+            <!-- TIPS -->
+
+            <div class="side-card tips-card">
+
+                <div class="side-card-heading">
+
+                    <div class="side-icon green-icon">
+                        ✓
+                    </div>
+
+                    <h3>Tips for a Better Report</h3>
+
+                </div>
+
+
+                <ul class="tips-list">
+
+                    <li>
+                        <span>✓</span>
+                        Be specific and detailed
+                    </li>
+
+                    <li>
+                        <span>✓</span>
+                        Mention exact location and date
+                    </li>
+
+                    <li>
+                        <span>✓</span>
+                        Add an image if available
+                    </li>
+
+                    <li>
+                        <span>✓</span>
+                        Include unique identifying marks
+                    </li>
+
+                    <li>
+                        <span>✓</span>
+                        Keep your contact information updated
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- REMEMBER -->
+
+            <div class="side-card remember-card">
+
+                <div class="remember-icon">
+                    ⭐
+                </div>
+
+                <div>
+
+                    <h3>Remember</h3>
+
+                    <p>
+                        Honest and accurate information
+                        helps reunite items faster!
+                    </p>
+
+                </div>
+
+                <div class="smile">
+                    ☺
+                </div>
+
+            </div>
+
+
+        </aside>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="footer-logo">
+            🎓 Campus<span>Find</span>
+        </div>
+
+        <p>
+            College Lost & Found Platform
+        </p>
+
+        <p class="copyright">
+            © 2026 CampusFind · Helping students find what matters.
+        </p>
+
+    </footer>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>
