@@ -1,209 +1,285 @@
-/* =========================================================
-   CAMPUSFIND - FRONTEND JAVASCRIPT
-   ========================================================= */
-
 document.addEventListener("DOMContentLoaded", function () {
 
     /* =====================================================
-       DESCRIPTION CHARACTER COUNTER
+       CAMPUSFIND - MAIN JAVASCRIPT
        ===================================================== */
-
-    const description = document.getElementById("description");
-    const characterCount = document.getElementById("characterCount");
-
-    if (description && characterCount) {
-
-        description.addEventListener("input", function () {
-
-            characterCount.textContent =
-                `${description.value.length} / 300`;
-
-        });
-
-    }
 
 
     /* =====================================================
-       IMAGE UPLOAD
+       1. BROWSE ITEMS - SEARCH & FILTER
        ===================================================== */
 
-    const imageInput = document.getElementById("itemImage");
+    const searchInput = document.getElementById("searchInput");
+    const categoryFilter = document.getElementById("categoryFilter");
+    const statusFilter = document.getElementById("statusFilter");
+    const itemsGrid = document.getElementById("itemsGrid");
+    const noResults = document.getElementById("noResults");
 
-    if (imageInput) {
 
-        imageInput.addEventListener("change", function () {
+    // Run only when the Browse Items page is present
+    if (
+        searchInput &&
+        categoryFilter &&
+        statusFilter &&
+        itemsGrid
+    ) {
 
-            const uploadBox =
-                document.querySelector(".upload-box");
+        const items =
+            itemsGrid.querySelectorAll(".item-card");
 
-            if (imageInput.files.length > 0) {
 
-                const file = imageInput.files[0];
+        function filterItems() {
 
-                uploadBox.querySelector(".upload-icon")
-                    .textContent = "✅";
+            const searchValue =
+                searchInput.value
+                    .toLowerCase()
+                    .trim();
 
-                uploadBox.querySelector("strong")
-                    .textContent = file.name;
+            const categoryValue =
+                categoryFilter.value;
 
-                uploadBox.querySelector("small")
-                    .textContent = "Image selected successfully";
+            const statusValue =
+                statusFilter.value;
+
+            let visibleCount = 0;
+
+
+            items.forEach(function (item) {
+
+                const itemText =
+                    item.textContent.toLowerCase();
+
+                const itemCategory =
+                    item.dataset.category;
+
+                const itemStatus =
+                    item.dataset.status;
+
+
+                // Search match
+                const matchesSearch =
+                    itemText.includes(searchValue);
+
+
+                // Category match
+                const matchesCategory =
+                    categoryValue === "all" ||
+                    itemCategory === categoryValue;
+
+
+                // Status match
+                const matchesStatus =
+                    statusValue === "all" ||
+                    itemStatus === statusValue;
+
+
+                // Show / hide item
+                if (
+                    matchesSearch &&
+                    matchesCategory &&
+                    matchesStatus
+                ) {
+
+                    item.style.display = "";
+
+                    visibleCount++;
+
+                } else {
+
+                    item.style.display = "none";
+
+                }
+
+            });
+
+
+            // Show "No items found"
+            if (noResults) {
+
+                if (visibleCount === 0) {
+
+                    noResults.style.display = "block";
+
+                } else {
+
+                    noResults.style.display = "none";
+
+                }
 
             }
 
-        });
+        }
+
+
+        // Search while typing
+        searchInput.addEventListener(
+            "input",
+            filterItems
+        );
+
+
+        // Category filter
+        categoryFilter.addEventListener(
+            "change",
+            filterItems
+        );
+
+
+        // Lost / Found filter
+        statusFilter.addEventListener(
+            "change",
+            filterItems
+        );
 
     }
 
 
+
     /* =====================================================
-       REPORT FORM
+       2. REPORT FORM
        ===================================================== */
 
-    const reportForm = document.getElementById("reportForm");
+    const reportForm =
+        document.querySelector(
+            'form[action="#"]'
+        );
+
 
     if (reportForm) {
 
-        reportForm.addEventListener("submit", function (event) {
+        reportForm.addEventListener(
+            "submit",
+            function (event) {
 
-            event.preventDefault();
-
-
-            const itemName =
-                document.getElementById("itemName").value.trim();
-
-            const category =
-                document.getElementById("category").value;
-
-            const location =
-                document.getElementById("location").value.trim();
-
-            const date =
-                document.getElementById("date").value;
-
-            const descriptionValue =
-                document.getElementById("description").value.trim();
+                event.preventDefault();
 
 
-            /* ---------------------------------------------
-               BASIC VALIDATION
-               --------------------------------------------- */
+                const itemName =
+                    document.getElementById(
+                        "item-name"
+                    );
 
-            if (!itemName || !category || !location || !date) {
+
+                if (
+                    itemName &&
+                    itemName.value.trim() === ""
+                ) {
+
+                    alert(
+                        "Please enter the item name."
+                    );
+
+                    itemName.focus();
+
+                    return;
+
+                }
+
 
                 alert(
-                    "Please fill in all required fields."
+                    "Your item report has been submitted successfully!"
                 );
 
-                return;
+
+                reportForm.reset();
 
             }
+        );
+
+    }
 
 
-            /* ---------------------------------------------
-               GET STATUS
-               --------------------------------------------- */
 
-            const selectedStatus =
-                document.querySelector(
-                    'input[name="status"]:checked'
+    /* =====================================================
+       3. MOBILE NAVIGATION
+       ===================================================== */
+
+    const navbar =
+        document.querySelector(".navbar");
+
+    const navLinks =
+        document.querySelector(".nav-links");
+
+
+    if (navbar && navLinks) {
+
+        // Create mobile menu button
+        const menuButton =
+            document.createElement("button");
+
+        menuButton.className =
+            "mobile-menu-btn";
+
+        menuButton.innerHTML = "☰";
+
+        menuButton.setAttribute(
+            "aria-label",
+            "Open navigation menu"
+        );
+
+
+        navbar.appendChild(menuButton);
+
+
+        menuButton.addEventListener(
+            "click",
+            function () {
+
+                navLinks.classList.toggle(
+                    "mobile-open"
                 );
 
-            const status =
-                selectedStatus
-                    ? selectedStatus.value
-                    : "lost";
-
-
-            /* ---------------------------------------------
-               TEMPORARY FRONTEND OBJECT
-               --------------------------------------------- */
-
-            const report = {
-
-                id: Date.now(),
-
-                status: status,
-
-                itemName: itemName,
-
-                category: category,
-
-                location: location,
-
-                date: date,
-
-                description: descriptionValue
-
-            };
-
-
-            /* ---------------------------------------------
-               SAVE TEMPORARILY IN BROWSER
-               --------------------------------------------- */
-
-            let reports =
-                JSON.parse(
-                    localStorage.getItem("campusFindReports")
-                ) || [];
-
-            reports.push(report);
-
-            localStorage.setItem(
-                "campusFindReports",
-                JSON.stringify(reports)
-            );
-
-
-            /* ---------------------------------------------
-               SUCCESS MESSAGE
-               --------------------------------------------- */
-
-            alert(
-                "🎉 Your item report has been submitted successfully!"
-            );
-
-
-            /* ---------------------------------------------
-               CLEAR FORM
-               --------------------------------------------- */
-
-            reportForm.reset();
-
-
-            if (characterCount) {
-
-                characterCount.textContent =
-                    "0 / 300";
-
             }
+        );
 
 
-            if (imageInput) {
+        // Close menu after clicking a link
+        const links =
+            navLinks.querySelectorAll("a");
 
-                const uploadBox =
-                    document.querySelector(".upload-box");
 
-                uploadBox.querySelector(".upload-icon")
-                    .textContent = "📷";
+        links.forEach(function (link) {
 
-                uploadBox.querySelector("strong")
-                    .textContent =
-                    "Click to upload an image";
+            link.addEventListener(
+                "click",
+                function () {
 
-                uploadBox.querySelector("small")
-                    .textContent =
-                    "JPG, PNG or JPEG";
+                    navLinks.classList.remove(
+                        "mobile-open"
+                    );
 
-            }
+                }
+            );
 
         });
 
     }
 
 
+
     /* =====================================================
-       NAVIGATION ACTIVE LINK
+       4. SET CURRENT YEAR
+       ===================================================== */
+
+    const copyright =
+        document.querySelector(
+            ".copyright"
+        );
+
+
+    if (copyright) {
+
+        copyright.textContent =
+            "© " +
+            new Date().getFullYear() +
+            " CampusFind. All rights reserved.";
+
+    }
+
+
+
+    /* =====================================================
+       5. ACTIVE NAVIGATION LINK
        ===================================================== */
 
     const currentPage =
@@ -211,15 +287,25 @@ document.addEventListener("DOMContentLoaded", function () {
             .split("/")
             .pop();
 
-    const navLinks =
-        document.querySelectorAll(".nav-links a");
 
-    navLinks.forEach(function (link) {
+    const navigationLinks =
+        document.querySelectorAll(
+            ".nav-links a"
+        );
+
+
+    navigationLinks.forEach(function (link) {
 
         const linkPage =
-            link.getAttribute("href");
+            link
+                .getAttribute("href")
+                ?.split("/")
+                .pop();
 
-        if (linkPage === currentPage) {
+
+        if (
+            linkPage === currentPage
+        ) {
 
             link.classList.add("active");
 
@@ -228,338 +314,3 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 });
-/* =====================================================
-   ITEMS PAGE - SEARCH
-   ===================================================== */
-
-function searchItems() {
-
-    const searchInput =
-        document.getElementById("searchInput");
-
-    if (!searchInput) return;
-
-    const searchText =
-        searchInput.value.toLowerCase().trim();
-
-    const items =
-        document.querySelectorAll(".item-card");
-
-    let visibleCount = 0;
-
-    items.forEach(function (item) {
-
-        const itemText =
-            item.dataset.search.toLowerCase();
-
-        if (itemText.includes(searchText)) {
-
-            item.style.display = "";
-
-            visibleCount++;
-
-        } else {
-
-            item.style.display = "none";
-
-        }
-
-    });
-
-    const noResults =
-        document.getElementById("noResults");
-
-    if (noResults) {
-
-        noResults.style.display =
-            visibleCount === 0
-                ? "block"
-                : "none";
-
-    }
-
-}
-
-
-/* =====================================================
-   ITEMS PAGE - FILTER
-   ===================================================== */
-
-function filterItems(status, button) {
-
-    const items =
-        document.querySelectorAll(".item-card");
-
-    let visibleCount = 0;
-
-    items.forEach(function (item) {
-
-        const itemStatus =
-            item.dataset.status;
-
-        if (
-            status === "all" ||
-            itemStatus === status
-        ) {
-
-            item.style.display = "";
-
-            visibleCount++;
-
-        } else {
-
-            item.style.display = "none";
-
-        }
-
-    });
-
-
-    /* Update active filter */
-
-    document
-        .querySelectorAll(".filter-btn")
-        .forEach(function (btn) {
-
-            btn.classList.remove("active-filter");
-
-        });
-
-    button.classList.add("active-filter");
-
-
-    /* No results */
-
-    const noResults =
-        document.getElementById("noResults");
-
-    if (noResults) {
-
-        noResults.style.display =
-            visibleCount === 0
-                ? "block"
-                : "none";
-
-    }
-
-}
-/* =====================================================
-   DASHBOARD
-   ===================================================== */
-
-function loadDashboard() {
-
-    const totalReports =
-        document.getElementById("totalReports");
-
-    if (!totalReports) return;
-
-    const reports =
-        JSON.parse(
-            localStorage.getItem("campusFindReports")
-        ) || [];
-
-    const lostReports =
-        reports.filter(
-            report => report.status === "lost"
-        );
-
-    const foundReports =
-        reports.filter(
-            report => report.status === "found"
-        );
-
-    document.getElementById("totalReports").textContent =
-        reports.length;
-
-    document.getElementById("lostReports").textContent =
-        lostReports.length;
-
-    document.getElementById("foundReports").textContent =
-        foundReports.length;
-
-
-    const recentReports =
-        document.getElementById("recentReports");
-
-    if (!recentReports || reports.length === 0) return;
-
-
-    recentReports.innerHTML = "";
-
-
-    reports
-        .slice(-5)
-        .reverse()
-        .forEach(function (report) {
-
-            const card =
-                document.createElement("div");
-
-            card.className = "recent-report-card";
-
-            card.innerHTML = `
-
-                <div class="recent-report-icon">
-                    ${report.status === "lost" ? "🔴" : "🟢"}
-                </div>
-
-                <div class="recent-report-info">
-
-                    <h3>${report.itemName}</h3>
-
-                    <p>
-                        ${report.category} • ${report.location}
-                    </p>
-
-                </div>
-
-                <span class="recent-status">
-                    ${report.status.toUpperCase()}
-                </span>
-
-            `;
-
-            recentReports.appendChild(card);
-
-        });
-
-}
-
-
-/* Load dashboard */
-
-loadDashboard();
-/* =====================================================
-   LOGIN FORM
-   ===================================================== */
-
-const loginForm =
-    document.getElementById("loginForm");
-
-if (loginForm) {
-
-    loginForm.addEventListener("submit", function (event) {
-
-        event.preventDefault();
-
-        const email =
-            document.getElementById("loginEmail").value.trim();
-
-        const password =
-            document.getElementById("loginPassword").value;
-
-        if (!email || !password) {
-
-            alert("Please enter your email and password.");
-
-            return;
-        }
-
-        /*
-         * Temporary frontend login.
-         * Member 1 will connect this to the backend API.
-         */
-
-        localStorage.setItem(
-            "campusFindLoggedIn",
-            "true"
-        );
-
-        localStorage.setItem(
-            "campusFindUserEmail",
-            email
-        );
-
-        alert("✅ Login successful!");
-
-        window.location.href = "dashboard.html";
-
-    });
-
-}
-/* =====================================================
-   REGISTER FORM
-   ===================================================== */
-
-const registerForm =
-    document.getElementById("registerForm");
-
-if (registerForm) {
-
-    registerForm.addEventListener("submit", function (event) {
-
-        event.preventDefault();
-
-        const name =
-            document.getElementById("registerName").value.trim();
-
-        const email =
-            document.getElementById("registerEmail").value.trim();
-
-        const password =
-            document.getElementById("registerPassword").value;
-
-        const confirmPassword =
-            document.getElementById("confirmPassword").value;
-
-
-        if (password !== confirmPassword) {
-
-            alert("❌ Passwords do not match.");
-
-            return;
-
-        }
-
-
-        if (password.length < 6) {
-
-            alert("❌ Password must contain at least 6 characters.");
-
-            return;
-
-        }
-
-
-        /*
-         * Temporary frontend registration.
-         * Member 1 will connect this to Flask backend.
-         */
-
-        const user = {
-
-            name: name,
-
-            email: email
-
-        };
-
-
-        localStorage.setItem(
-            "campusFindUser",
-            JSON.stringify(user)
-        );
-
-
-        alert(
-            "🎉 Account created successfully! Please sign in."
-        );
-
-
-        window.location.href = "login.html";
-
-    });
-
-}
-/* =====================================================
-   ITEM DETAILS
-   ===================================================== */
-
-function contactReporter() {
-
-    alert(
-        "📩 Contact feature will be connected to the backend soon."
-    );
-
-}
