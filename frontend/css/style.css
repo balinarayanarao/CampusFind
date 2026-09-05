@@ -4290,3 +4290,364 @@ footer p {
     }
 
 }
+/* =========================================================
+   DASHBOARD
+   ========================================================= */
+
+.dashboard-page {
+    min-height: calc(100vh - 80px);
+    padding: 45px 0 70px;
+    background: #f6f7fb;
+}
+
+.dashboard-container {
+    width: min(1100px, 92%);
+    margin: auto;
+}
+
+
+/* WELCOME */
+
+.dashboard-welcome {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    margin-bottom: 28px;
+}
+
+.dashboard-label {
+    margin: 0 0 7px;
+    color: #6b5cf5;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.dashboard-welcome h1 {
+    margin: 0 0 8px;
+    color: #111827;
+    font-size: 32px;
+    letter-spacing: -0.7px;
+}
+
+.dashboard-welcome > div > p:last-child {
+    margin: 0;
+    color: #7b8190;
+    font-size: 13px;
+}
+
+.dashboard-report-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 0 18px;
+    border-radius: 9px;
+    background: #5b4ff1;
+    color: white;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+    transition: .2s;
+}
+
+.dashboard-report-btn:hover {
+    transform: translateY(-2px);
+}
+
+
+/* STATISTICS */
+
+.dashboard-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-bottom: 35px;
+}
+
+.stat-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 20px;
+    border: 1px solid #e4e7ed;
+    border-radius: 14px;
+    background: white;
+}
+
+.stat-icon {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 11px;
+    background: #f0efff;
+    font-size: 19px;
+}
+
+.stat-card span {
+    display: block;
+    margin-bottom: 4px;
+    color: #9298a5;
+    font-size: 10px;
+}
+
+.stat-card strong {
+    color: #202534;
+    font-size: 22px;
+}
+
+
+/* SECTION */
+
+.dashboard-section {
+    margin-bottom: 35px;
+}
+
+.dashboard-section-heading {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.dashboard-section-heading h2 {
+    margin: 0;
+    color: #161a26;
+    font-size: 22px;
+}
+
+.dashboard-section-heading > a {
+    color: #5b4ff1;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+
+/* REPORTS TABLE */
+
+.reports-table {
+    overflow: hidden;
+    border: 1px solid #e3e6ec;
+    border-radius: 15px;
+    background: white;
+}
+
+.report-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr .8fr .5fr;
+    align-items: center;
+    gap: 15px;
+    min-height: 75px;
+    padding: 0 22px;
+    border-bottom: 1px solid #edf0f4;
+    color: #707786;
+    font-size: 11px;
+}
+
+.report-row:last-child {
+    border-bottom: none;
+}
+
+.report-header {
+    min-height: 42px;
+    background: #fafbfc;
+    color: #9aa0ac;
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.report-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.report-item-icon {
+    width: 39px;
+    height: 39px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9px;
+    background: #f1f2ff;
+    font-size: 18px;
+}
+
+.report-item strong {
+    display: block;
+    margin-bottom: 4px;
+    color: #343947;
+    font-size: 12px;
+}
+
+.report-item small {
+    color: #9aa0ac;
+    font-size: 9px;
+}
+
+.report-row > a {
+    color: #5b4ff1;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.table-status {
+    width: fit-content;
+    padding: 5px 9px;
+    border-radius: 20px;
+    font-size: 8px;
+    font-weight: 800;
+}
+
+.table-status.lost {
+    background: #fff0f0;
+    color: #d65757;
+}
+
+.table-status.found {
+    background: #eefbf4;
+    color: #2d9b62;
+}
+
+.table-status.recovered {
+    background: #f0efff;
+    color: #6658df;
+}
+
+
+/* QUICK ACTIONS */
+
+.quick-section {
+    margin-top: 35px;
+}
+
+.quick-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 12px;
+}
+
+.quick-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    border: 1px solid #e3e6ec;
+    border-radius: 14px;
+    background: white;
+    color: inherit;
+    text-decoration: none;
+    transition: .2s;
+}
+
+.quick-card:hover {
+    transform: translateY(-3px);
+    border-color: #cbc7ff;
+    box-shadow: 0 10px 25px rgba(25, 30, 50, .06);
+}
+
+.quick-icon {
+    width: 43px;
+    height: 43px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border-radius: 11px;
+    background: #f0efff;
+    color: #5b4ff1;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.quick-card h3 {
+    margin: 0 0 4px;
+    color: #282d3a;
+    font-size: 13px;
+}
+
+.quick-card p {
+    margin: 0;
+    color: #999fac;
+    font-size: 10px;
+}
+
+.quick-card > span {
+    margin-left: auto;
+    color: #5b4ff1;
+    font-size: 17px;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 850px) {
+
+    .dashboard-stats {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .report-row {
+        grid-template-columns: 2fr 1fr .7fr;
+    }
+
+    .report-row > span:nth-child(2),
+    .report-row > span:nth-child(3) {
+        display: none;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .dashboard-welcome {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .dashboard-welcome h1 {
+        font-size: 26px;
+    }
+
+    .dashboard-report-btn {
+        width: 100%;
+    }
+
+    .dashboard-stats {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .stat-card {
+        padding: 15px;
+    }
+
+    .stat-icon {
+        width: 35px;
+        height: 35px;
+        font-size: 15px;
+    }
+
+    .report-row {
+        grid-template-columns: 1fr auto;
+        padding: 0 15px;
+    }
+
+    .report-header {
+        display: none;
+    }
+
+    .report-row > .table-status {
+        display: none;
+    }
+
+    .quick-actions {
+        grid-template-columns: 1fr;
+    }
+
+}
