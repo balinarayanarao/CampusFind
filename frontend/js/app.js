@@ -343,3 +343,90 @@ function filterItems(status, button) {
     }
 
 }
+/* =====================================================
+   DASHBOARD
+   ===================================================== */
+
+function loadDashboard() {
+
+    const totalReports =
+        document.getElementById("totalReports");
+
+    if (!totalReports) return;
+
+    const reports =
+        JSON.parse(
+            localStorage.getItem("campusFindReports")
+        ) || [];
+
+    const lostReports =
+        reports.filter(
+            report => report.status === "lost"
+        );
+
+    const foundReports =
+        reports.filter(
+            report => report.status === "found"
+        );
+
+    document.getElementById("totalReports").textContent =
+        reports.length;
+
+    document.getElementById("lostReports").textContent =
+        lostReports.length;
+
+    document.getElementById("foundReports").textContent =
+        foundReports.length;
+
+
+    const recentReports =
+        document.getElementById("recentReports");
+
+    if (!recentReports || reports.length === 0) return;
+
+
+    recentReports.innerHTML = "";
+
+
+    reports
+        .slice(-5)
+        .reverse()
+        .forEach(function (report) {
+
+            const card =
+                document.createElement("div");
+
+            card.className = "recent-report-card";
+
+            card.innerHTML = `
+
+                <div class="recent-report-icon">
+                    ${report.status === "lost" ? "🔴" : "🟢"}
+                </div>
+
+                <div class="recent-report-info">
+
+                    <h3>${report.itemName}</h3>
+
+                    <p>
+                        ${report.category} • ${report.location}
+                    </p>
+
+                </div>
+
+                <span class="recent-status">
+                    ${report.status.toUpperCase()}
+                </span>
+
+            `;
+
+            recentReports.appendChild(card);
+
+        });
+
+}
+
+
+/* Load dashboard */
+
+loadDashboard();
