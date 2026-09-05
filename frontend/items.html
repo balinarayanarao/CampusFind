@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Browse Items | CampusFind</title>
+    <title>Item Details | CampusFind</title>
 
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -29,414 +29,280 @@
     </nav>
 
 
-    <!-- PAGE -->
+    <!-- MAIN -->
     <main class="page-container">
 
-        <!-- HEADER -->
-        <section class="page-header">
+        <!-- BACK -->
+        <a
+            href="items.html"
+            style="
+                display:inline-flex;
+                align-items:center;
+                gap:8px;
+                color:#4f46e5;
+                font-weight:700;
+                font-size:14px;
+                margin-bottom:25px;
+            "
+        >
+            ← Back to Items
+        </a>
 
-            <div class="hero-badge">
-                🔎 CAMPUS LOST & FOUND
+
+        <!-- DETAILS CARD -->
+        <section
+            class="card"
+            style="
+                max-width:1000px;
+                margin:auto;
+                padding:0;
+                overflow:hidden;
+            "
+        >
+
+            <div
+                style="
+                    display:grid;
+                    grid-template-columns:1fr 1fr;
+                "
+            >
+
+                <!-- IMAGE -->
+                <div
+                    style="
+                        min-height:430px;
+                        display:flex;
+                        align-items:center;
+                        justify-content:center;
+                        background:linear-gradient(135deg,#eeeeff,#f8f7ff);
+                        font-size:130px;
+                    "
+                >
+                    👛
+                </div>
+
+
+                <!-- DETAILS -->
+                <div style="padding:40px;">
+
+                    <span class="badge badge-lost">
+                        🔴 LOST ITEM
+                    </span>
+
+
+                    <h1
+                        style="
+                            margin:18px 0 8px;
+                            color:#172033;
+                            font-size:36px;
+                        "
+                    >
+                        Black Wallet
+                    </h1>
+
+
+                    <p
+                        style="
+                            color:#68758a;
+                            margin-bottom:30px;
+                        "
+                    >
+                        Reported by a campus student
+                    </p>
+
+
+                    <!-- INFO -->
+                    <div
+                        style="
+                            display:flex;
+                            flex-direction:column;
+                            gap:18px;
+                        "
+                    >
+
+                        <div
+                            style="
+                                display:flex;
+                                gap:15px;
+                                align-items:center;
+                            "
+                        >
+
+                            <div
+                                style="
+                                    width:42px;
+                                    height:42px;
+                                    display:flex;
+                                    align-items:center;
+                                    justify-content:center;
+                                    border-radius:10px;
+                                    background:#f0efff;
+                                "
+                            >
+                                🏷️
+                            </div>
+
+                            <div>
+                                <small style="color:#94a3b8;">
+                                    Category
+                                </small>
+
+                                <p style="font-weight:700;">
+                                    Wallet / ID
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            style="
+                                display:flex;
+                                gap:15px;
+                                align-items:center;
+                            "
+                        >
+
+                            <div
+                                style="
+                                    width:42px;
+                                    height:42px;
+                                    display:flex;
+                                    align-items:center;
+                                    justify-content:center;
+                                    border-radius:10px;
+                                    background:#eefaf6;
+                                "
+                            >
+                                📍
+                            </div>
+
+                            <div>
+                                <small style="color:#94a3b8;">
+                                    Last Seen Location
+                                </small>
+
+                                <p style="font-weight:700;">
+                                    Library, Block A
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            style="
+                                display:flex;
+                                gap:15px;
+                                align-items:center;
+                            "
+                        >
+
+                            <div
+                                style="
+                                    width:42px;
+                                    height:42px;
+                                    display:flex;
+                                    align-items:center;
+                                    justify-content:center;
+                                    border-radius:10px;
+                                    background:#fff5e8;
+                                "
+                            >
+                                📅
+                            </div>
+
+                            <div>
+                                <small style="color:#94a3b8;">
+                                    Date Reported
+                                </small>
+
+                                <p style="font-weight:700;">
+                                    September 2, 2026
+                                </p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- DESCRIPTION -->
+                    <div
+                        style="
+                            margin-top:30px;
+                            padding:18px;
+                            border-radius:12px;
+                            background:#f8f9fc;
+                        "
+                    >
+
+                        <h3
+                            style="
+                                margin-bottom:7px;
+                                font-size:15px;
+                            "
+                        >
+                            Description
+                        </h3>
+
+                        <p
+                            style="
+                                color:#68758a;
+                                font-size:14px;
+                            "
+                        >
+                            Black leather wallet with a small
+                            college ID card inside. Last seen near
+                            the library entrance.
+                        </p>
+
+                    </div>
+
+
+                    <!-- ACTION -->
+                    <button
+                        class="submit-report-btn"
+                        style="margin-top:25px;"
+                        onclick="contactReporter()"
+                    >
+                        📩 Contact About This Item
+                    </button>
+
+                </div>
+
             </div>
-
-            <h1>
-                Browse <span style="color:#4f46e5;">Lost & Found</span> Items
-            </h1>
-
-            <p>
-                Search through items reported by students across the campus.
-            </p>
 
         </section>
 
 
-        <!-- SEARCH -->
-        <div class="search-box">
-
-            <input
-                type="text"
-                id="searchInput"
-                placeholder="🔍 Search by item name, category or location..."
-            >
-
-            <button
-                class="primary-btn"
-                onclick="searchItems()"
-            >
-                Search
-            </button>
-
-        </div>
-
-
-        <!-- FILTERS -->
-        <div style="
-            display:flex;
-            gap:12px;
-            justify-content:center;
-            flex-wrap:wrap;
-            margin-bottom:35px;
-        ">
-
-            <button
-                class="secondary-btn filter-btn active-filter"
-                onclick="filterItems('all', this)"
-            >
-                All Items
-            </button>
-
-            <button
-                class="secondary-btn filter-btn"
-                onclick="filterItems('lost', this)"
-            >
-                🔴 Lost
-            </button>
-
-            <button
-                class="secondary-btn filter-btn"
-                onclick="filterItems('found', this)"
-            >
-                🟢 Found
-            </button>
-
-        </div>
-
-
-        <!-- ITEMS -->
-        <section>
-
-            <div
-                id="itemsGrid"
-                class="items-grid"
-            >
-
-                <!-- ITEM 1 -->
-                <article
-                    class="item-card"
-                    data-status="lost"
-                    data-search="black wallet wallet id library"
-                >
-
-                    <div style="
-                        height:130px;
-                        display:flex;
-                        align-items:center;
-                        justify-content:center;
-                        border-radius:12px;
-                        background:#f1f2ff;
-                        font-size:55px;
-                        margin-bottom:18px;
-                    ">
-                        👛
-                    </div>
-
-                    <span class="badge badge-lost">
-                        🔴 LOST
-                    </span>
-
-                    <h3 style="margin-top:12px;">
-                        Black Wallet
-                    </h3>
-
-                    <p>
-                        📍 Library, Block A
-                    </p>
-
-                    <p>
-                        📅 September 2, 2026
-                    </p>
-
-                    <a
-                        href="item-details.html"
-                        class="primary-btn"
-                        style="
-                            width:100%;
-                            margin-top:16px;
-                        "
-                    >
-                        View Details
-                    </a>
-
-                </article>
-
-
-                <!-- ITEM 2 -->
-                <article
-                    class="item-card"
-                    data-status="found"
-                    data-search="blue water bottle bottle cafeteria"
-                >
-
-                    <div style="
-                        height:130px;
-                        display:flex;
-                        align-items:center;
-                        justify-content:center;
-                        border-radius:12px;
-                        background:#eefaf6;
-                        font-size:55px;
-                        margin-bottom:18px;
-                    ">
-                        🧴
-                    </div>
-
-                    <span class="badge badge-found">
-                        🟢 FOUND
-                    </span>
-
-                    <h3 style="margin-top:12px;">
-                        Blue Water Bottle
-                    </h3>
-
-                    <p>
-                        📍 Cafeteria
-                    </p>
-
-                    <p>
-                        📅 September 2, 2026
-                    </p>
-
-                    <a
-                        href="item-details.html"
-                        class="primary-btn"
-                        style="
-                            width:100%;
-                            margin-top:16px;
-                        "
-                    >
-                        View Details
-                    </a>
-
-                </article>
-
-
-                <!-- ITEM 3 -->
-                <article
-                    class="item-card"
-                    data-status="lost"
-                    data-search="student id card id card computer lab"
-                >
-
-                    <div style="
-                        height:130px;
-                        display:flex;
-                        align-items:center;
-                        justify-content:center;
-                        border-radius:12px;
-                        background:#fff5e8;
-                        font-size:55px;
-                        margin-bottom:18px;
-                    ">
-                        🪪
-                    </div>
-
-                    <span class="badge badge-lost">
-                        🔴 LOST
-                    </span>
-
-                    <h3 style="margin-top:12px;">
-                        Student ID Card
-                    </h3>
-
-                    <p>
-                        📍 Computer Lab
-                    </p>
-
-                    <p>
-                        📅 September 1, 2026
-                    </p>
-
-                    <a
-                        href="item-details.html"
-                        class="primary-btn"
-                        style="
-                            width:100%;
-                            margin-top:16px;
-                        "
-                    >
-                        View Details
-                    </a>
-
-                </article>
-
-
-                <!-- ITEM 4 -->
-                <article
-                    class="item-card"
-                    data-status="found"
-                    data-search="keys key auditorium"
-                >
-
-                    <div style="
-                        height:130px;
-                        display:flex;
-                        align-items:center;
-                        justify-content:center;
-                        border-radius:12px;
-                        background:#f5efff;
-                        font-size:55px;
-                        margin-bottom:18px;
-                    ">
-                        🔑
-                    </div>
-
-                    <span class="badge badge-found">
-                        🟢 FOUND
-                    </span>
-
-                    <h3 style="margin-top:12px;">
-                        Set of Keys
-                    </h3>
-
-                    <p>
-                        📍 Auditorium
-                    </p>
-
-                    <p>
-                        📅 August 31, 2026
-                    </p>
-
-                    <a
-                        href="item-details.html"
-                        class="primary-btn"
-                        style="
-                            width:100%;
-                            margin-top:16px;
-                        "
-                    >
-                        View Details
-                    </a>
-
-                </article>
-
-
-                <!-- ITEM 5 -->
-                <article
-                    class="item-card"
-                    data-status="lost"
-                    data-search="calculator electronics calculator block b"
-                >
-
-                    <div style="
-                        height:130px;
-                        display:flex;
-                        align-items:center;
-                        justify-content:center;
-                        border-radius:12px;
-                        background:#edf5ff;
-                        font-size:55px;
-                        margin-bottom:18px;
-                    ">
-                        🧮
-                    </div>
-
-                    <span class="badge badge-lost">
-                        🔴 LOST
-                    </span>
-
-                    <h3 style="margin-top:12px;">
-                        Scientific Calculator
-                    </h3>
-
-                    <p>
-                        📍 Block B
-                    </p>
-
-                    <p>
-                        📅 August 30, 2026
-                    </p>
-
-                    <a
-                        href="item-details.html"
-                        class="primary-btn"
-                        style="
-                            width:100%;
-                            margin-top:16px;
-                        "
-                    >
-                        View Details
-                    </a>
-
-                </article>
-
-
-                <!-- ITEM 6 -->
-                <article
-                    class="item-card"
-                    data-status="found"
-                    data-search="notebook books notebook seminar hall"
-                >
-
-                    <div style="
-                        height:130px;
-                        display:flex;
-                        align-items:center;
-                        justify-content:center;
-                        border-radius:12px;
-                        background:#fff0f5;
-                        font-size:55px;
-                        margin-bottom:18px;
-                    ">
-                        📓
-                    </div>
-
-                    <span class="badge badge-found">
-                        🟢 FOUND
-                    </span>
-
-                    <h3 style="margin-top:12px;">
-                        Blue Notebook
-                    </h3>
-
-                    <p>
-                        📍 Seminar Hall
-                    </p>
-
-                    <p>
-                        📅 August 29, 2026
-                    </p>
-
-                    <a
-                        href="item-details.html"
-                        class="primary-btn"
-                        style="
-                            width:100%;
-                            margin-top:16px;
-                        "
-                    >
-                        View Details
-                    </a>
-
-                </article>
-
+        <!-- SAFETY -->
+        <div
+            class="dashboard-tip"
+            style="
+                max-width:1000px;
+                margin:25px auto 0;
+            "
+        >
+
+            <div class="tip-icon">
+                🛡️
             </div>
 
+            <div>
 
-            <!-- NO RESULTS -->
-            <div
-                id="noResults"
-                style="
-                    display:none;
-                    text-align:center;
-                    padding:60px 20px;
-                "
-            >
+                <h3>
+                    Stay Safe
+                </h3>
 
-                <div style="font-size:55px;">
-                    🔍
-                </div>
-
-                <h2>
-                    No items found
-                </h2>
-
-                <p style="color:#68758a;">
-                    Try searching with a different keyword.
+                <p>
+                    Meet in a public campus location and never
+                    share passwords, OTPs or financial information.
                 </p>
 
             </div>
 
-        </section>
+        </div>
 
     </main>
 
@@ -459,7 +325,6 @@
     </footer>
 
 
-    <!-- JAVASCRIPT -->
     <script src="js/app.js"></script>
 
 </body>

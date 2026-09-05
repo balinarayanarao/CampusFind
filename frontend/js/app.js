@@ -552,3 +552,14 @@ if (registerForm) {
     });
 
 }
+/* =====================================================
+   ITEM DETAILS
+   ===================================================== */
+
+function contactReporter() {
+
+    alert(
+        "📩 Contact feature will be connected to the backend soon."
+    );
+
+}
