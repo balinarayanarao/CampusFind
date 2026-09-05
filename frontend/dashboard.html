@@ -1,242 +1,245 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Dashboard | CampusFind</title>
+
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-<nav class="navbar">
+    <!-- NAVBAR -->
+    <nav class="navbar">
 
-    <a href="index.html" class="logo">
-        Campus<span>Find</span>
-    </a>
-
-    <div class="nav-links">
-        <a href="dashboard.html" class="active">Dashboard</a>
-        <a href="items.html">Browse Items</a>
-        <a href="report.html">Report Item</a>
-        <a href="login.html">Logout</a>
-    </div>
-
-</nav>
-
-
-<main class="dashboard-container">
-
-    <!-- Welcome -->
-    <section class="dashboard-welcome">
-
-        <div>
-            <div class="hero-badge">
-                🎓 STUDENT DASHBOARD
-            </div>
-
-            <h1>
-                Welcome to <span>CampusFind</span>
-            </h1>
-
-            <p>
-                Track your reports and help reunite lost belongings
-                with their owners.
-            </p>
-        </div>
-
-        <a href="report.html" class="primary-btn">
-            + Report an Item
+        <a href="index.html" class="logo">
+            Campus<span>Find</span>
         </a>
 
-    </section>
-
-
-    <!-- Statistics -->
-    <section class="stats-grid">
-
-        <div class="stat-card">
-            <div class="stat-icon">📋</div>
-            <div>
-                <h3 id="totalReports">0</h3>
-                <p>Total Reports</p>
-            </div>
+        <div class="nav-links">
+            <a href="dashboard.html" class="active">Dashboard</a>
+            <a href="items.html">Browse Items</a>
+            <a href="report.html">Report Item</a>
+            <a href="index.html">Logout</a>
         </div>
 
-        <div class="stat-card">
-            <div class="stat-icon lost-stat">🔴</div>
-            <div>
-                <h3 id="lostReports">0</h3>
-                <p>Lost Items</p>
-            </div>
-        </div>
-
-        <div class="stat-card">
-            <div class="stat-icon found-stat">🟢</div>
-            <div>
-                <h3 id="foundReports">0</h3>
-                <p>Found Items</p>
-            </div>
-        </div>
-
-        <div class="stat-card">
-            <div class="stat-icon">🤝</div>
-            <div>
-                <h3>24/7</h3>
-                <p>Campus Support</p>
-            </div>
-        </div>
-
-    </section>
+    </nav>
 
 
-    <!-- Quick Actions -->
-    <section class="dashboard-section">
+    <!-- DASHBOARD HERO -->
+    <main>
 
-        <div class="section-heading">
-            <div>
-                <h2>Quick Actions</h2>
-                <p>What would you like to do?</p>
-            </div>
-        </div>
+        <section class="dashboard-hero">
 
+            <div class="dashboard-container">
 
-        <div class="quick-actions">
-
-            <a href="report.html" class="action-card">
-
-                <div class="action-icon">
-                    🔍
+                <div class="badge">
+                    🎓 STUDENT DASHBOARD
                 </div>
 
-                <h3>Report Lost Item</h3>
+                <h1>
+                    Welcome to <span>CampusFind</span>
+                </h1>
 
                 <p>
-                    Tell the campus community about something you lost.
+                    Track your reports and help reunite belongings
+                    with their owners.
                 </p>
 
-                <span>Report Now →</span>
-
-            </a>
-
-
-            <a href="report.html" class="action-card">
-
-                <div class="action-icon found-action">
-                    🎁
-                </div>
-
-                <h3>Report Found Item</h3>
-
-                <p>
-                    Help another student find their missing belonging.
-                </p>
-
-                <span>Report Now →</span>
-
-            </a>
-
-
-            <a href="items.html" class="action-card">
-
-                <div class="action-icon browse-action">
-                    🗂️
-                </div>
-
-                <h3>Browse Items</h3>
-
-                <p>
-                    Search through recently reported lost and found items.
-                </p>
-
-                <span>Browse Now →</span>
-
-            </a>
-
-        </div>
-
-    </section>
-
-
-    <!-- Recent Reports -->
-    <section class="dashboard-section">
-
-        <div class="section-heading">
-
-            <div>
-                <h2>Recent Reports</h2>
-                <p>Your recently submitted reports.</p>
-            </div>
-
-            <a href="items.html">
-                View All →
-            </a>
-
-        </div>
-
-
-        <div id="recentReports" class="recent-reports">
-
-            <div class="empty-dashboard">
-
-                <div>📭</div>
-
-                <h3>No reports yet</h3>
-
-                <p>
-                    Your submitted reports will appear here.
-                </p>
-
-                <a href="report.html" class="secondary-btn">
-                    Report Your First Item
+                <a href="report.html" class="btn primary-btn">
+                    + Report an Item
                 </a>
 
             </div>
 
+        </section>
+
+
+        <!-- STATISTICS -->
+        <section class="stats-section">
+
+            <div class="dashboard-container">
+
+                <div class="stats-grid">
+
+                    <div class="stat-card">
+                        <div class="stat-icon">📋</div>
+                        <div class="stat-number">0</div>
+                        <div class="stat-label">Total Reports</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">🔴</div>
+                        <div class="stat-number">0</div>
+                        <div class="stat-label">Lost Items</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">🟢</div>
+                        <div class="stat-number">0</div>
+                        <div class="stat-label">Found Items</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">🤝</div>
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Campus Support</div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- QUICK ACTIONS -->
+        <section class="quick-actions">
+
+            <div class="dashboard-container">
+
+                <div class="section-heading">
+                    <p class="small-title">GET STARTED</p>
+
+                    <h2>Quick Actions</h2>
+
+                    <p>
+                        What would you like to do?
+                    </p>
+                </div>
+
+
+                <div class="action-grid">
+
+                    <!-- REPORT LOST -->
+                    <a href="report.html" class="action-card">
+
+                        <div class="action-icon">
+                            🔎
+                        </div>
+
+                        <div>
+                            <h3>Report Lost Item</h3>
+
+                            <p>
+                                Tell the campus community about
+                                something you lost.
+                            </p>
+
+                            <span class="action-link">
+                                Report Now →
+                            </span>
+                        </div>
+
+                    </a>
+
+
+                    <!-- REPORT FOUND -->
+                    <a href="report.html" class="action-card">
+
+                        <div class="action-icon">
+                            🎁
+                        </div>
+
+                        <div>
+                            <h3>Report Found Item</h3>
+
+                            <p>
+                                Help someone find their lost
+                                belonging.
+                            </p>
+
+                            <span class="action-link">
+                                Report Found Item →
+                            </span>
+                        </div>
+
+                    </a>
+
+
+                    <!-- BROWSE -->
+                    <a href="items.html" class="action-card">
+
+                        <div class="action-icon">
+                            🔍
+                        </div>
+
+                        <div>
+                            <h3>Browse Items</h3>
+
+                            <p>
+                                Search through lost and found
+                                belongings on campus.
+                            </p>
+
+                            <span class="action-link">
+                                Browse Now →
+                            </span>
+                        </div>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- INFORMATION SECTION -->
+        <section class="dashboard-info">
+
+            <div class="dashboard-container">
+
+                <div class="info-box">
+
+                    <div class="info-icon">
+                        💡
+                    </div>
+
+                    <div>
+                        <h3>Found something?</h3>
+
+                        <p>
+                            Reporting a found item can help return
+                            it to its rightful owner quickly.
+                        </p>
+
+                        <a href="report.html">
+                            Report Found Item →
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="footer-logo">
+            Campus<span>Find</span>
         </div>
 
-    </section>
+        <p>
+            College Lost & Found Platform
+        </p>
 
+        <p class="copyright">
+            © 2026 CampusFind. All rights reserved.
+        </p>
 
-    <!-- Safety Tip -->
-    <section class="dashboard-tip">
+    </footer>
 
-        <div class="tip-icon">
-            💡
-        </div>
-
-        <div>
-            <h3>CampusFind Safety Tip</h3>
-
-            <p>
-                Never share passwords, OTPs, bank details or other
-                sensitive information while trying to recover an item.
-            </p>
-        </div>
-
-    </section>
-
-</main>
-
-
-<footer>
-
-    <div class="footer-logo">
-        Campus<span>Find</span>
-    </div>
-
-    <p>
-        Helping students reunite with their lost belongings.
-    </p>
-
-    <p class="copyright">
-        © 2026 CampusFind. Built for college students.
-    </p>
-
-</footer>
-
-
-<script src="js/app.js"></script>
 
 </body>
+
 </html>
