@@ -478,3 +478,77 @@ if (loginForm) {
     });
 
 }
+/* =====================================================
+   REGISTER FORM
+   ===================================================== */
+
+const registerForm =
+    document.getElementById("registerForm");
+
+if (registerForm) {
+
+    registerForm.addEventListener("submit", function (event) {
+
+        event.preventDefault();
+
+        const name =
+            document.getElementById("registerName").value.trim();
+
+        const email =
+            document.getElementById("registerEmail").value.trim();
+
+        const password =
+            document.getElementById("registerPassword").value;
+
+        const confirmPassword =
+            document.getElementById("confirmPassword").value;
+
+
+        if (password !== confirmPassword) {
+
+            alert("❌ Passwords do not match.");
+
+            return;
+
+        }
+
+
+        if (password.length < 6) {
+
+            alert("❌ Password must contain at least 6 characters.");
+
+            return;
+
+        }
+
+
+        /*
+         * Temporary frontend registration.
+         * Member 1 will connect this to Flask backend.
+         */
+
+        const user = {
+
+            name: name,
+
+            email: email
+
+        };
+
+
+        localStorage.setItem(
+            "campusFindUser",
+            JSON.stringify(user)
+        );
+
+
+        alert(
+            "🎉 Account created successfully! Please sign in."
+        );
+
+
+        window.location.href = "login.html";
+
+    });
+
+}
