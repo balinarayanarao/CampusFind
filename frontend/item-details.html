@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item Details | CampusFind</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<nav class="navbar">
+
+    <a href="index.html" class="logo">
+        Campus<span>Find</span>
+    </a>
+
+    <div class="nav-links">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="items.html" class="active">Browse Items</a>
+        <a href="report.html">Report Item</a>
+        <a href="login.html">Logout</a>
+    </div>
+
+</nav>
+
+
+<main class="page-container">
+
+    <a href="items.html"
+       style="display:inline-flex;align-items:center;gap:8px;color:#4f46e5;font-weight:700;margin-bottom:25px;">
+        ← Back to Items
+    </a>
+
+
+    <section class="card"
+             style="max-width:1000px;margin:auto;padding:0;overflow:hidden;">
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;">
+
+            <!-- IMAGE -->
+            <div style="
+                min-height:430px;
+                display:flex;
+                align-items:center;
+                justify-content:center;
+                background:linear-gradient(135deg,#eeeeff,#f8f7ff);
+                font-size:130px;
+            ">
+                👛
+            </div>
+
+
+            <!-- DETAILS -->
+            <div style="padding:40px;">
+
+                <span class="badge badge-lost">
+                    🔴 LOST ITEM
+                </span>
+
+                <h1 style="margin:18px 0 8px;color:#172033;font-size:36px;">
+                    Black Wallet
+                </h1>
+
+                <p style="color:#68758a;margin-bottom:30px;">
+                    Reported by a campus student
+                </p>
+
+
+                <div style="display:flex;flex-direction:column;gap:18px;">
+
+                    <div style="display:flex;gap:15px;align-items:center;">
+
+                        <div style="
+                            width:42px;
+                            height:42px;
+                            display:flex;
+                            align-items:center;
+                            justify-content:center;
+                            border-radius:10px;
+                            background:#f0efff;
+                        ">
+                            🏷️
+                        </div>
+
+                        <div>
+                            <small style="color:#94a3b8;">
+                                Category
+                            </small>
+
+                            <p style="font-weight:700;">
+                                Wallet / ID
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div style="display:flex;gap:15px;align-items:center;">
+
+                        <div style="
+                            width:42px;
+                            height:42px;
+                            display:flex;
+                            align-items:center;
+                            justify-content:center;
+                            border-radius:10px;
+                            background:#eefaf6;
+                        ">
+                            📍
+                        </div>
+
+                        <div>
+                            <small style="color:#94a3b8;">
+                                Last Seen Location
+                            </small>
+
+                            <p style="font-weight:700;">
+                                Library, Block A
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div style="display:flex;gap:15px;align-items:center;">
+
+                        <div style="
+                            width:42px;
+                            height:42px;
+                            display:flex;
+                            align-items:center;
+                            justify-content:center;
+                            border-radius:10px;
+                            background:#fff5e8;
+                        ">
+                            📅
+                        </div>
+
+                        <div>
+                            <small style="color:#94a3b8;">
+                                Date Reported
+                            </small>
+
+                            <p style="font-weight:700;">
+                                September 2, 2026
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- DESCRIPTION -->
+                <div style="
+                    margin-top:30px;
+                    padding:18px;
+                    border-radius:12px;
+                    background:#f8f9fc;
+                ">
+
+                    <h3 style="margin-bottom:7px;font-size:15px;">
+                        Description
+                    </h3>
+
+                    <p style="color:#68758a;font-size:14px;">
+                        Black leather wallet with a small college ID
+                        card inside. Last seen near the library entrance.
+                    </p>
+
+                </div>
+
+
+                <button
+                    class="submit-report-btn"
+                    style="margin-top:25px;"
+                    onclick="contactReporter()"
+                >
+                    📩 Contact About This Item
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <div class="dashboard-tip"
+         style="max-width:1000px;margin:25px auto 0;">
+
+        <div class="tip-icon">
+            🛡️
+        </div>
+
+        <div>
+
+            <h3>Stay Safe</h3>
+
+            <p>
+                Meet in a public campus location and never share
+                passwords, OTPs or financial information.
+            </p>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<footer>
+
+    <div class="footer-logo">
+        Campus<span>Find</span>
+    </div>
+
+    <p>
+        Helping students reunite with their lost belongings.
+    </p>
+
+    <p class="copyright">
+        © 2026 CampusFind. Built for college students.
+    </p>
+
+</footer>
+
+
+<script src="js/app.js"></script>
+
+</body>
+</html>
