@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Report Item | CampusFind</title>
+    <title>Report an Item | CampusFind</title>
 
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -20,356 +20,388 @@
         </a>
 
         <div class="nav-links">
-            <a href="dashboard.html">Dashboard</a>
+            <a href="index.html">Home</a>
             <a href="items.html">Browse Items</a>
-            <a href="report.html" class="active">Report Item</a>
-            <a href="index.html">Logout</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="report.html" class="nav-btn">Report Item</a>
         </div>
 
     </nav>
 
 
-    <!-- REPORT PAGE -->
-    <main class="report-page">
+    <!-- PAGE HEADER -->
+    <section class="report-hero">
 
-        <!-- PAGE HEADER -->
-        <section class="report-header">
+        <div class="hero-content">
 
-            <div class="report-wrapper">
-
-                <p class="report-eyebrow">
-                    CAMPUS LOST & FOUND
-                </p>
-
-                <h1>
-                    Report an <span>Item</span>
-                </h1>
-
-                <p>
-                    Help reunite a lost belonging with its owner
-                    by providing a few details below.
-                </p>
-
+            <div class="hero-badge">
+                📌 LOST & FOUND REPORT
             </div>
 
-        </section>
+            <h1>
+                Report an
+                <span>Item</span>
+            </h1>
+
+            <p>
+                Help your campus community reconnect
+                lost belongings with their owners.
+            </p>
+
+        </div>
+
+    </section>
 
 
-        <!-- FORM AREA -->
-        <section class="report-content">
+    <!-- REPORT FORM -->
+    <main class="report-page">
 
-            <div class="report-wrapper">
+        <div class="report-container">
 
-                <div class="report-layout">
+            <div class="report-card">
 
-                    <!-- FORM -->
-                    <div class="report-form-card">
+                <div class="report-card-header">
 
-                        <div class="form-card-header">
+                    <div>
+                        <p class="small-title">
+                            ITEM INFORMATION
+                        </p>
 
-                            <div class="report-form-icon">
-                                📝
-                            </div>
+                        <h2>
+                            Tell us about the item
+                        </h2>
 
-                            <div>
-                                <h2>Item Information</h2>
+                        <p>
+                            Provide accurate details so students
+                            can identify it easily.
+                        </p>
+                    </div>
 
-                                <p>
-                                    Please provide accurate details
-                                    about the item.
-                                </p>
-                            </div>
+                    <div class="report-card-icon">
+                        📦
+                    </div>
+
+                </div>
+
+
+                <form id="reportForm">
+
+                    <!-- REPORT TYPE -->
+                    <div class="form-section">
+
+                        <label class="form-title">
+                            What happened?
+                        </label>
+
+                        <div class="choice-grid">
+
+                            <label class="choice-card">
+
+                                <input
+                                    type="radio"
+                                    name="reportType"
+                                    value="lost"
+                                    checked
+                                >
+
+                                <span class="choice-icon">
+                                    🔎
+                                </span>
+
+                                <span>
+                                    <strong>Lost Item</strong>
+                                    <small>
+                                        I lost something
+                                    </small>
+                                </span>
+
+                            </label>
+
+
+                            <label class="choice-card">
+
+                                <input
+                                    type="radio"
+                                    name="reportType"
+                                    value="found"
+                                >
+
+                                <span class="choice-icon">
+                                    🎒
+                                </span>
+
+                                <span>
+                                    <strong>Found Item</strong>
+                                    <small>
+                                        I found something
+                                    </small>
+                                </span>
+
+                            </label>
 
                         </div>
-
-
-                        <form action="#" method="POST">
-
-
-                            <!-- ITEM STATUS -->
-                            <div class="report-form-group">
-
-                                <label>
-                                    What happened?
-                                </label>
-
-                                <div class="status-options">
-
-                                    <label class="status-option">
-
-                                        <input
-                                            type="radio"
-                                            name="status"
-                                            value="lost"
-                                            checked
-                                        >
-
-                                        <span>
-                                            🔴
-                                            <strong> I Lost Something</strong>
-                                        </span>
-
-                                    </label>
-
-
-                                    <label class="status-option">
-
-                                        <input
-                                            type="radio"
-                                            name="status"
-                                            value="found"
-                                        >
-
-                                        <span>
-                                            🟢
-                                            <strong> I Found Something</strong>
-                                        </span>
-
-                                    </label>
-
-                                </div>
-
-                            </div>
-
-
-                            <!-- ITEM NAME -->
-                            <div class="report-form-group">
-
-                                <label for="item-name">
-                                    Item Name
-                                </label>
-
-                                <input
-                                    type="text"
-                                    id="item-name"
-                                    name="item_name"
-                                    placeholder="e.g. Black Wallet"
-                                    required
-                                >
-
-                            </div>
-
-
-                            <!-- CATEGORY -->
-                            <div class="report-form-group">
-
-                                <label for="category">
-                                    Category
-                                </label>
-
-                                <select
-                                    id="category"
-                                    name="category"
-                                    required
-                                >
-
-                                    <option value="">
-                                        Select a category
-                                    </option>
-
-                                    <option value="electronics">
-                                        Electronics
-                                    </option>
-
-                                    <option value="documents">
-                                        Documents / ID
-                                    </option>
-
-                                    <option value="wallet">
-                                        Wallet / Money
-                                    </option>
-
-                                    <option value="keys">
-                                        Keys
-                                    </option>
-
-                                    <option value="bags">
-                                        Bags
-                                    </option>
-
-                                    <option value="clothing">
-                                        Clothing
-                                    </option>
-
-                                    <option value="books">
-                                        Books / Notes
-                                    </option>
-
-                                    <option value="other">
-                                        Other
-                                    </option>
-
-                                </select>
-
-                            </div>
-
-
-                            <!-- LOCATION -->
-                            <div class="report-form-group">
-
-                                <label for="location">
-                                    Location
-                                </label>
-
-                                <input
-                                    type="text"
-                                    id="location"
-                                    name="location"
-                                    placeholder="e.g. Library, Block A"
-                                    required
-                                >
-
-                            </div>
-
-
-                            <!-- DATE -->
-                            <div class="report-form-group">
-
-                                <label for="date">
-                                    Date
-                                </label>
-
-                                <input
-                                    type="date"
-                                    id="date"
-                                    name="date"
-                                    required
-                                >
-
-                            </div>
-
-
-                            <!-- DESCRIPTION -->
-                            <div class="report-form-group">
-
-                                <label for="description">
-                                    Description
-                                </label>
-
-                                <textarea
-                                    id="description"
-                                    name="description"
-                                    rows="5"
-                                    placeholder="Describe the item, its color, brand, identifying marks, or other useful details..."
-                                    required
-                                ></textarea>
-
-                            </div>
-
-
-                            <!-- CONTACT -->
-                            <div class="report-form-group">
-
-                                <label for="contact">
-                                    Contact Information
-                                </label>
-
-                                <input
-                                    type="text"
-                                    id="contact"
-                                    name="contact"
-                                    placeholder="College email or phone number"
-                                    required
-                                >
-
-                                <small>
-                                    Your contact details help students
-                                    reach you regarding the item.
-                                </small>
-
-                            </div>
-
-
-                            <!-- SUBMIT -->
-                            <button
-                                type="submit"
-                                class="report-submit-btn"
-                            >
-                                Submit Report
-                                <span>→</span>
-                            </button>
-
-                        </form>
 
                     </div>
 
 
-                    <!-- SIDE INFORMATION -->
-                    <aside class="report-side">
+                    <!-- ITEM NAME -->
+                    <div class="form-group">
 
-                        <div class="report-help-card">
+                        <label for="itemName">
+                            Item Name
+                        </label>
 
-                            <div class="help-icon">
-                                💡
-                            </div>
+                        <input
+                            type="text"
+                            id="itemName"
+                            name="itemName"
+                            placeholder="Example: Black Wallet"
+                            required
+                        >
 
-                            <h3>
-                                Tips for a better report
-                            </h3>
+                    </div>
 
-                            <div class="help-list">
 
-                                <div>
-                                    <span>01</span>
-                                    <p>
-                                        Give a clear item name.
-                                    </p>
-                                </div>
+                    <!-- CATEGORY -->
+                    <div class="form-row">
 
-                                <div>
-                                    <span>02</span>
-                                    <p>
-                                        Mention the exact location.
-                                    </p>
-                                </div>
+                        <div class="form-group">
 
-                                <div>
-                                    <span>03</span>
-                                    <p>
-                                        Add identifying details.
-                                    </p>
-                                </div>
+                            <label for="category">
+                                Category
+                            </label>
 
-                                <div>
-                                    <span>04</span>
-                                    <p>
-                                        Keep your contact information
-                                        accurate.
-                                    </p>
-                                </div>
+                            <select
+                                id="category"
+                                name="category"
+                                required
+                            >
 
-                            </div>
+                                <option value="">
+                                    Select category
+                                </option>
+
+                                <option value="electronics">
+                                    Electronics
+                                </option>
+
+                                <option value="documents">
+                                    Documents
+                                </option>
+
+                                <option value="bags">
+                                    Bags
+                                </option>
+
+                                <option value="clothing">
+                                    Clothing
+                                </option>
+
+                                <option value="accessories">
+                                    Accessories
+                                </option>
+
+                                <option value="keys">
+                                    Keys
+                                </option>
+
+                                <option value="other">
+                                    Other
+                                </option>
+
+                            </select>
 
                         </div>
 
 
-                        <div class="report-security-card">
+                        <div class="form-group">
 
-                            <div class="security-icon">
-                                🔒
-                            </div>
+                            <label for="location">
+                                Location
+                            </label>
 
-                            <div>
-                                <h3>
-                                    Your information
-                                </h3>
-
-                                <p>
-                                    Please avoid sharing sensitive
-                                    personal information in the item
-                                    description.
-                                </p>
-                            </div>
+                            <input
+                                type="text"
+                                id="location"
+                                name="location"
+                                placeholder="Example: Library"
+                                required
+                            >
 
                         </div>
 
-                    </aside>
+                    </div>
 
-                </div>
+
+                    <!-- DATE -->
+                    <div class="form-group">
+
+                        <label for="date">
+                            Date
+                        </label>
+
+                        <input
+                            type="date"
+                            id="date"
+                            name="date"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- DESCRIPTION -->
+                    <div class="form-group">
+
+                        <label for="description">
+                            Description
+                        </label>
+
+                        <textarea
+                            id="description"
+                            name="description"
+                            rows="5"
+                            placeholder="Describe the item, its color, brand, identifying marks, or anything that may help identify it..."
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+                    <!-- CONTACT -->
+                    <div class="form-section">
+
+                        <label class="form-title">
+                            Contact Information
+                        </label>
+
+                        <p class="form-help">
+                            Add a way for the owner or finder
+                            to contact you.
+                        </p>
+
+                    </div>
+
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+
+                            <label for="contactName">
+                                Your Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="contactName"
+                                name="contactName"
+                                placeholder="Your name"
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="contactEmail">
+                                Email
+                            </label>
+
+                            <input
+                                type="email"
+                                id="contactEmail"
+                                name="contactEmail"
+                                placeholder="you@college.edu"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- SUBMIT -->
+                    <button
+                        type="submit"
+                        class="submit-report-btn"
+                    >
+                        <span>Submit Report</span>
+                        →
+                    </button>
+
+
+                    <p class="privacy-note">
+                        🔒 Your information will only be used
+                        for CampusFind communication.
+                    </p>
+
+                </form>
 
             </div>
 
-        </section>
+
+            <!-- SIDE INFORMATION -->
+            <aside class="report-side">
+
+                <div class="side-card">
+
+                    <span class="side-card-icon">
+                        💡
+                    </span>
+
+                    <h3>
+                        Make your report useful
+                    </h3>
+
+                    <p>
+                        The more details you provide,
+                        the easier it is for someone to
+                        recognize the item.
+                    </p>
+
+                    <ul>
+
+                        <li>
+                            Add the exact location
+                        </li>
+
+                        <li>
+                            Mention the brand or color
+                        </li>
+
+                        <li>
+                            Include unique identifiers
+                        </li>
+
+                        <li>
+                            Keep your description clear
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="side-card security-card">
+
+                    <span class="side-card-icon">
+                        🛡️
+                    </span>
+
+                    <h3>
+                        Stay safe
+                    </h3>
+
+                    <p>
+                        Never share passwords, OTPs,
+                        banking information, or other
+                        sensitive details.
+                    </p>
+
+                </div>
+
+            </aside>
+
+        </div>
 
     </main>
 
@@ -390,6 +422,9 @@
         </p>
 
     </footer>
+
+
+    <script src="js/app.js"></script>
 
 </body>
 
