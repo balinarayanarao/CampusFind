@@ -6141,3 +6141,1068 @@ footer p {
     }
 
 }
+/* =========================================================
+   LOGIN PAGE - PROFESSIONAL LAYOUT FIX
+   ========================================================= */
+
+.auth-page {
+    min-height: calc(100vh - 80px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 24px;
+    background:
+        radial-gradient(circle at 10% 20%, rgba(79, 70, 229, 0.08), transparent 30%),
+        radial-gradient(circle at 90% 80%, rgba(99, 102, 241, 0.08), transparent 30%),
+        #f7f8fc;
+    box-sizing: border-box;
+}
+
+.auth-container {
+    width: 100%;
+    max-width: 1100px;
+    min-height: 620px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(420px, 480px);
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 0 25px 70px rgba(15, 23, 42, 0.12);
+}
+
+/* LEFT PANEL */
+
+.auth-info {
+    min-width: 0;
+    padding: 70px 65px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background:
+        linear-gradient(145deg, #111827 0%, #171d3d 55%, #24205c 100%);
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.auth-info::before {
+    content: "";
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    background: rgba(99, 102, 241, 0.16);
+    top: -140px;
+    right: -120px;
+}
+
+.auth-info::after {
+    content: "";
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    bottom: -100px;
+    left: -100px;
+}
+
+.auth-brand {
+    position: relative;
+    z-index: 2;
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 55px;
+}
+
+.auth-brand span {
+    color: #6366f1;
+}
+
+.auth-info .small-title {
+    position: relative;
+    z-index: 2;
+    color: #a5b4fc;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 18px;
+}
+
+.auth-info h1 {
+    position: relative;
+    z-index: 2;
+    max-width: 570px;
+    margin: 0 0 25px;
+    font-size: clamp(42px, 5vw, 68px);
+    line-height: 0.98;
+    letter-spacing: -2px;
+    font-weight: 800;
+    color: #ffffff;
+}
+
+.auth-info h1 span {
+    display: block;
+    color: #6d5dfc;
+}
+
+.auth-info > p:not(.small-title) {
+    position: relative;
+    z-index: 2;
+    max-width: 520px;
+    margin: 0 0 32px;
+    color: #cbd5e1;
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.auth-points {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.auth-points div {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.auth-points span {
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(99, 102, 241, 0.2);
+    color: #a5b4fc;
+    font-weight: 800;
+}
+
+.auth-points p {
+    margin: 0;
+    color: #e2e8f0;
+    font-size: 15px;
+}
+
+
+/* RIGHT FORM CARD */
+
+.auth-card {
+    width: auto;
+    min-width: 0;
+    padding: 55px 55px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #ffffff;
+    box-sizing: border-box;
+}
+
+.auth-card-header {
+    margin-bottom: 32px;
+}
+
+.auth-card-header h2 {
+    margin: 0 0 8px;
+    color: #111827;
+    font-size: 34px;
+    line-height: 1.15;
+    font-weight: 800;
+}
+
+.auth-card-header p {
+    margin: 0;
+    color: #64748b;
+    font-size: 15px;
+}
+
+
+/* FORM */
+
+.auth-card form {
+    width: 100%;
+}
+
+.auth-card .form-group {
+    width: 100%;
+    margin-bottom: 22px;
+}
+
+.auth-card label {
+    display: block;
+    margin-bottom: 9px;
+    color: #1e293b;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.auth-card input[type="email"],
+.auth-card input[type="password"] {
+    width: 100%;
+    height: 54px;
+    padding: 0 16px;
+    box-sizing: border-box;
+    border: 1px solid #d7dce5;
+    border-radius: 12px;
+    outline: none;
+    background: #ffffff;
+    color: #111827;
+    font-size: 15px;
+    transition: 0.2s ease;
+}
+
+.auth-card input[type="email"]:focus,
+.auth-card input[type="password"]:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.10);
+}
+
+.auth-card input::placeholder {
+    color: #94a3b8;
+}
+
+
+/* PASSWORD LABEL */
+
+.password-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.password-label label {
+    margin-bottom: 0;
+}
+
+.password-label a {
+    color: #4f46e5;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.password-label a:hover {
+    text-decoration: underline;
+}
+
+
+/* REMEMBER ME */
+
+.remember-me {
+    display: flex !important;
+    align-items: center;
+    gap: 9px;
+    margin: 2px 0 24px !important;
+    cursor: pointer;
+    color: #475569 !important;
+    font-weight: 500 !important;
+}
+
+.remember-me input {
+    width: 17px;
+    height: 17px;
+    accent-color: #4f46e5;
+    cursor: pointer;
+}
+
+
+/* LOGIN BUTTON */
+
+.auth-submit {
+    width: 100%;
+    height: 56px;
+    border: none;
+    border-radius: 13px;
+    background: linear-gradient(135deg, #4f46e5, #6366f1);
+    color: white;
+    font-size: 16px;
+    font-weight: 750;
+    cursor: pointer;
+    box-shadow: 0 12px 25px rgba(79, 70, 229, 0.22);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.auth-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 30px rgba(79, 70, 229, 0.30);
+}
+
+.auth-submit:active {
+    transform: translateY(0);
+}
+
+
+/* CREATE ACCOUNT */
+
+.auth-switch {
+    margin-top: 25px;
+    text-align: center;
+    color: #64748b;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.auth-switch a {
+    color: #4f46e5;
+    font-weight: 750;
+    text-decoration: none;
+    margin-left: 4px;
+}
+
+.auth-switch a:hover {
+    text-decoration: underline;
+}
+
+
+/* FOOTER */
+
+.auth-page + footer {
+    margin-top: 0;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .auth-container {
+        max-width: 650px;
+        grid-template-columns: 1fr;
+    }
+
+    .auth-info {
+        padding: 45px 45px;
+    }
+
+    .auth-brand {
+        margin-bottom: 35px;
+    }
+
+    .auth-info h1 {
+        font-size: 48px;
+    }
+
+    .auth-card {
+        padding: 45px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .auth-page {
+        padding: 25px 15px;
+    }
+
+    .auth-container {
+        border-radius: 20px;
+        min-height: auto;
+    }
+
+    .auth-info {
+        padding: 38px 28px;
+    }
+
+    .auth-brand {
+        font-size: 24px;
+        margin-bottom: 30px;
+    }
+
+    .auth-info h1 {
+        font-size: 40px;
+        letter-spacing: -1px;
+    }
+
+    .auth-info > p:not(.small-title) {
+        font-size: 16px;
+    }
+
+    .auth-card {
+        padding: 35px 28px;
+    }
+
+    .auth-card-header h2 {
+        font-size: 30px;
+    }
+
+    .password-label {
+        align-items: flex-start;
+    }
+
+    .password-label a {
+        font-size: 12px;
+    }
+}
+/* =========================================================
+   CAMPUSFIND — PROFESSIONAL REPORT PAGE
+   Final UI Override
+   Paste at the VERY BOTTOM of style.css
+   ========================================================= */
+
+/* ---------- REPORT PAGE BACKGROUND ---------- */
+
+body:has(.report-hero) {
+    background: #f7f8fc !important;
+    color: #111827 !important;
+}
+
+
+/* ---------- HERO ---------- */
+
+.report-hero {
+    position: relative !important;
+    padding: 55px 24px 70px !important;
+    min-height: 230px !important;
+
+    background:
+        radial-gradient(
+            circle at 8% 80%,
+            rgba(99, 102, 241, .10),
+            transparent 230px
+        ),
+        radial-gradient(
+            circle at 92% 20%,
+            rgba(99, 102, 241, .12),
+            transparent 250px
+        ),
+        linear-gradient(
+            135deg,
+            #f5f6ff 0%,
+            #ffffff 55%,
+            #f2f1ff 100%
+        ) !important;
+
+    border-bottom: 1px solid #e8eaf2 !important;
+}
+
+.report-hero .hero-content {
+    width: 100% !important;
+    max-width: 1000px !important;
+    margin: 0 auto !important;
+
+    text-align: center !important;
+}
+
+.report-hero .hero-badge,
+.report-hero .badge {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    padding: 10px 20px !important;
+
+    border-radius: 999px !important;
+
+    background: rgba(255,255,255,.9) !important;
+
+    color: #4f46e5 !important;
+
+    font-size: 13px !important;
+    font-weight: 800 !important;
+
+    letter-spacing: 1px !important;
+
+    box-shadow:
+        0 8px 25px rgba(79,70,229,.08) !important;
+
+    margin-bottom: 22px !important;
+}
+
+.report-hero h1 {
+    margin: 0 !important;
+
+    font-size: clamp(42px, 6vw, 68px) !important;
+    line-height: 1.05 !important;
+
+    letter-spacing: -2.5px !important;
+
+    font-weight: 850 !important;
+
+    color: #111827 !important;
+}
+
+.report-hero h1 span {
+    color: #5146e5 !important;
+}
+
+.report-hero .hero-content > p {
+    max-width: 760px !important;
+
+    margin: 20px auto 0 !important;
+
+    color: #64748b !important;
+
+    font-size: 18px !important;
+    line-height: 1.6 !important;
+}
+
+
+/* =========================================================
+   MAIN REPORT AREA
+   ========================================================= */
+
+.report-container,
+.report-layout,
+.report-content {
+    width: min(1120px, calc(100% - 40px)) !important;
+    margin: 0 auto !important;
+}
+
+.report-container {
+    display: grid !important;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        345px !important;
+
+    gap: 26px !important;
+
+    align-items: start !important;
+
+    padding: 45px 0 70px !important;
+}
+
+
+/* =========================================================
+   FORM CARD
+   ========================================================= */
+
+.report-form,
+.report-form-card,
+.report-card {
+    background: #ffffff !important;
+
+    border: 1px solid #e4e7ef !important;
+
+    border-radius: 20px !important;
+
+    padding: 32px !important;
+
+    box-shadow:
+        0 12px 35px rgba(15,23,42,.06) !important;
+}
+
+
+/* FORM HEADER */
+
+.report-form-header {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 15px !important;
+
+    margin-bottom: 30px !important;
+}
+
+.report-form-icon {
+    width: 48px !important;
+    height: 48px !important;
+
+    flex-shrink: 0 !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    border-radius: 14px !important;
+
+    background: #eef0ff !important;
+
+    color: #5146e5 !important;
+
+    font-size: 22px !important;
+}
+
+.report-form-header h2 {
+    margin: 0 !important;
+
+    color: #111827 !important;
+
+    font-size: 25px !important;
+
+    line-height: 1.2 !important;
+}
+
+.report-form-header p {
+    margin: 7px 0 0 !important;
+
+    color: #64748b !important;
+
+    font-size: 14px !important;
+
+    line-height: 1.5 !important;
+}
+
+
+/* =========================================================
+   FORM FIELDS
+   ========================================================= */
+
+.report-form .form-group,
+.report-card .form-group {
+    margin-bottom: 22px !important;
+}
+
+.report-form label,
+.report-card label {
+    display: block !important;
+
+    margin-bottom: 8px !important;
+
+    color: #1e293b !important;
+
+    font-size: 14px !important;
+
+    font-weight: 750 !important;
+}
+
+.report-form input,
+.report-form select,
+.report-form textarea,
+.report-card input,
+.report-card select,
+.report-card textarea {
+    width: 100% !important;
+
+    box-sizing: border-box !important;
+
+    border: 1px solid #d9deea !important;
+
+    border-radius: 11px !important;
+
+    background: #ffffff !important;
+
+    color: #111827 !important;
+
+    font-family: inherit !important;
+
+    font-size: 15px !important;
+
+    transition:
+        border-color .2s ease,
+        box-shadow .2s ease,
+        background .2s ease !important;
+}
+
+.report-form input,
+.report-form select,
+.report-card input,
+.report-card select {
+    height: 54px !important;
+
+    padding: 0 15px !important;
+}
+
+.report-form textarea,
+.report-card textarea {
+    min-height: 125px !important;
+
+    padding: 14px 15px !important;
+
+    resize: vertical !important;
+}
+
+.report-form input::placeholder,
+.report-form textarea::placeholder,
+.report-card input::placeholder,
+.report-card textarea::placeholder {
+    color: #a0a9ba !important;
+}
+
+.report-form input:focus,
+.report-form select:focus,
+.report-form textarea:focus,
+.report-card input:focus,
+.report-card select:focus,
+.report-card textarea:focus {
+    outline: none !important;
+
+    border-color: #6366f1 !important;
+
+    box-shadow:
+        0 0 0 4px rgba(99,102,241,.10) !important;
+}
+
+
+/* =========================================================
+   LOST / FOUND SELECTOR
+   ========================================================= */
+
+.item-status,
+.status-options,
+.report-status {
+    display: grid !important;
+
+    grid-template-columns: 1fr 1fr !important;
+
+    gap: 14px !important;
+
+    margin-bottom: 25px !important;
+}
+
+.item-status label,
+.status-options label,
+.report-status label {
+    margin: 0 !important;
+}
+
+.item-status label,
+.status-options label,
+.report-status label,
+.item-status .option,
+.status-options .option {
+    min-height: 62px !important;
+
+    display: flex !important;
+    align-items: center !important;
+
+    padding: 0 18px !important;
+
+    box-sizing: border-box !important;
+
+    border: 1px solid #dce1eb !important;
+
+    border-radius: 12px !important;
+
+    background: #ffffff !important;
+
+    cursor: pointer !important;
+
+    transition: .2s ease !important;
+}
+
+.item-status label:hover,
+.status-options label:hover,
+.report-status label:hover {
+    border-color: #a5b4fc !important;
+
+    background: #fafaff !important;
+}
+
+.item-status input:checked + label,
+.status-options input:checked + label,
+.report-status input:checked + label {
+    border-color: #6366f1 !important;
+
+    background: #f1f2ff !important;
+
+    box-shadow:
+        0 0 0 3px rgba(99,102,241,.08) !important;
+}
+
+
+/* =========================================================
+   TWO FIELD ROW
+   ========================================================= */
+
+.form-row {
+    display: grid !important;
+
+    grid-template-columns: 1fr 1fr !important;
+
+    gap: 18px !important;
+}
+
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+
+.report-sidebar {
+    display: flex !important;
+
+    flex-direction: column !important;
+
+    gap: 20px !important;
+}
+
+.sidebar-card,
+.report-sidebar > div {
+    background: #ffffff !important;
+
+    border: 1px solid #e4e7ef !important;
+
+    border-radius: 18px !important;
+
+    padding: 26px !important;
+
+    box-shadow:
+        0 10px 30px rgba(15,23,42,.05) !important;
+}
+
+.sidebar-card-icon {
+    width: 44px !important;
+    height: 44px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    margin-bottom: 16px !important;
+
+    border-radius: 50% !important;
+
+    background: #f1f2ff !important;
+
+    font-size: 21px !important;
+}
+
+.sidebar-card h3 {
+    margin: 0 0 10px !important;
+
+    color: #111827 !important;
+
+    font-size: 19px !important;
+}
+
+.sidebar-card p {
+    margin: 0 !important;
+
+    color: #64748b !important;
+
+    font-size: 14px !important;
+
+    line-height: 1.65 !important;
+}
+
+.sidebar-card ul {
+    margin: 16px 0 0 !important;
+
+    padding: 0 !important;
+
+    list-style: none !important;
+}
+
+.sidebar-card li {
+    position: relative !important;
+
+    margin-bottom: 12px !important;
+
+    padding-left: 27px !important;
+
+    color: #334155 !important;
+
+    font-size: 14px !important;
+
+    line-height: 1.45 !important;
+}
+
+.sidebar-card li::before {
+    content: "✓" !important;
+
+    position: absolute !important;
+
+    left: 0 !important;
+    top: 0 !important;
+
+    width: 19px !important;
+    height: 19px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    border-radius: 50% !important;
+
+    background: #5b54ed !important;
+
+    color: #ffffff !important;
+
+    font-size: 11px !important;
+
+    font-weight: 800 !important;
+}
+
+
+/* =========================================================
+   PHOTO UPLOAD
+   ========================================================= */
+
+.upload-box,
+.file-upload,
+.image-upload {
+    width: 100% !important;
+
+    min-height: 100px !important;
+
+    box-sizing: border-box !important;
+
+    display: flex !important;
+
+    align-items: center !important;
+
+    justify-content: center !important;
+
+    text-align: center !important;
+
+    border: 1.5px dashed #b9c1d4 !important;
+
+    border-radius: 12px !important;
+
+    background: #fafbfe !important;
+
+    cursor: pointer !important;
+
+    transition: .2s ease !important;
+}
+
+.upload-box:hover,
+.file-upload:hover,
+.image-upload:hover {
+    border-color: #6366f1 !important;
+
+    background: #f7f7ff !important;
+}
+
+
+/* =========================================================
+   SUBMIT BUTTON
+   ========================================================= */
+
+.submit-report-btn {
+    width: 100% !important;
+
+    min-height: 54px !important;
+
+    border: none !important;
+
+    border-radius: 11px !important;
+
+    background:
+        linear-gradient(
+            135deg,
+            #4f46e5,
+            #6366f1
+        ) !important;
+
+    color: #ffffff !important;
+
+    font-family: inherit !important;
+
+    font-size: 15px !important;
+
+    font-weight: 800 !important;
+
+    cursor: pointer !important;
+
+    box-shadow:
+        0 12px 25px rgba(79,70,229,.20) !important;
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease !important;
+}
+
+.submit-report-btn:hover {
+    transform: translateY(-2px) !important;
+
+    box-shadow:
+        0 16px 30px rgba(79,70,229,.28) !important;
+}
+
+.submit-report-btn:active {
+    transform: translateY(0) !important;
+}
+
+
+/* =========================================================
+   REQUIRED FIELD
+   ========================================================= */
+
+.report-form label.required::after,
+.report-card label.required::after {
+    content: " *" !important;
+
+    color: #ef4444 !important;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+body:has(.report-hero) footer {
+    margin-top: 0 !important;
+
+    border-top: 1px solid #e5e7eb !important;
+
+    background: #ffffff !important;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .report-container {
+        grid-template-columns: 1fr !important;
+    }
+
+    .report-sidebar {
+        display: grid !important;
+
+        grid-template-columns: 1fr 1fr !important;
+    }
+}
+
+
+@media (max-width: 650px) {
+
+    .report-hero {
+        padding: 40px 18px 50px !important;
+    }
+
+    .report-hero h1 {
+        font-size: 42px !important;
+        letter-spacing: -1.5px !important;
+    }
+
+    .report-hero .hero-content > p {
+        font-size: 16px !important;
+    }
+
+    .report-container,
+    .report-layout,
+    .report-content {
+        width: calc(100% - 24px) !important;
+    }
+
+    .report-container {
+        padding: 25px 0 45px !important;
+    }
+
+    .report-form,
+    .report-form-card,
+    .report-card {
+        padding: 22px !important;
+        border-radius: 16px !important;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr !important;
+        gap: 0 !important;
+    }
+
+    .item-status,
+    .status-options,
+    .report-status {
+        grid-template-columns: 1fr !important;
+    }
+
+    .report-sidebar {
+        grid-template-columns: 1fr !important;
+    }
+}
