@@ -332,12 +332,78 @@ def create_claim():
                     "message": f"{field} is required"
                 }), 400
 
+        item_id = data["item_id"]
+
         # --------------------------------------------------------
-        # 4. Create claim
+        # 4. Check whether item exists
+        # --------------------------------------------------------
+
+        item_response = (
+            db
+            .table("items")
+            .select("id, user_id, status")
+            .eq("id", item_id)
+            .maybe_single()
+            .execute()
+        )
+
+        item = item_response.data
+
+        if not item:
+            return jsonify({
+                "status": "error",
+                "message": "Item not found"
+            }), 404
+
+        # --------------------------------------------------------
+        # 5. Prevent owner from claiming their own item
+        # --------------------------------------------------------
+
+        if str(item["user_id"]) == str(user.id):
+            return jsonify({
+                "status": "error",
+                "message": "You cannot claim your own item"
+            }), 403
+
+        # --------------------------------------------------------
+        # 6. Prevent claims on returned items
+        # --------------------------------------------------------
+
+        if str(item.get("status", "")).upper() == "RETURNED":
+            return jsonify({
+                "status": "error",
+                "message": "This item has already been returned"
+            }), 400
+
+        # --------------------------------------------------------
+        # 7. Prevent duplicate pending claims
+        # --------------------------------------------------------
+
+        existing_claim_response = (
+            db
+            .table("claims")
+            .select("id, status")
+            .eq("item_id", item_id)
+            .eq("claimant_id", user.id)
+            .eq("status", "PENDING")
+            .limit(1)
+            .execute()
+        )
+
+        existing_claims = existing_claim_response.data or []
+
+        if existing_claims:
+            return jsonify({
+                "status": "error",
+                "message": "You already have a pending claim for this item"
+            }), 409
+
+        # --------------------------------------------------------
+        # 8. Create claim
         # --------------------------------------------------------
 
         claim_data = {
-            "item_id": data["item_id"],
+            "item_id": item_id,
             "claimant_id": user.id,
             "verification_text": data["verification_text"].strip(),
             "status": "PENDING"
@@ -361,7 +427,6 @@ def create_claim():
             "status": "error",
             "message": str(e)
         }), 500
-
 
 # ============================================================
 # GET CLAIMS
