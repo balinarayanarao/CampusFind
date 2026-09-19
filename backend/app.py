@@ -1,4 +1,5 @@
 from flask import Flask, jsonify, request
+import uuid
 from flask_cors import CORS
 from supabase import create_client
 from dotenv import load_dotenv
@@ -138,16 +139,10 @@ def create_item():
             }), 401
 
         # --------------------------------------------------------
-        # 2. Get request data
+        # 2. Get form data
         # --------------------------------------------------------
 
-        data = request.get_json()
-
-        if not data:
-            return jsonify({
-                "status": "error",
-                "message": "Request body is required"
-            }), 400
+        data = request.form
 
         # --------------------------------------------------------
         # 3. Validate required fields
@@ -182,7 +177,64 @@ def create_item():
             }), 400
 
         # --------------------------------------------------------
-        # 5. Build item data
+        # 5. Upload image if provided
+        # --------------------------------------------------------
+
+        image_url = None
+
+        image = request.files.get("itemImage")
+
+        if image and image.filename:
+
+            # Allow only image files
+            allowed_types = [
+                "image/jpeg",
+                "image/png",
+                "image/webp",
+                "image/gif"
+            ]
+
+            if image.content_type not in allowed_types:
+                return jsonify({
+                    "status": "error",
+                    "message": "Only JPG, PNG, WEBP and GIF images are allowed"
+                }), 400
+
+            # Create unique filename
+            file_extension = image.filename.rsplit(".", 1)[-1].lower()
+            file_name = f"{uuid.uuid4()}.{file_extension}"
+
+            # Store files inside user's folder
+            file_path = f"{user.id}/{file_name}"
+
+            # Read image bytes
+            image_bytes = image.read()
+
+            # Upload to Supabase Storage
+            storage_response = (
+                db
+                .storage
+                .from_("item-images")
+                .upload(
+                    file_path,
+                    image_bytes,
+                    file_options={
+                        "content-type": image.content_type,
+                        "upsert": "false"
+                    }
+                )
+            )
+
+            # Get public URL
+            image_url = (
+                db
+                .storage
+                .from_("item-images")
+                .get_public_url(file_path)
+            )
+
+        # --------------------------------------------------------
+        # 6. Build item data
         # --------------------------------------------------------
 
         item_data = {
@@ -193,11 +245,11 @@ def create_item():
             "category": data["category"].strip(),
             "location": data["location"].strip(),
             "date": data["date"],
-            "image_url": data.get("image_url")
+            "image_url": image_url
         }
 
         # --------------------------------------------------------
-        # 6. Insert using server database client
+        # 7. Insert item into database
         # --------------------------------------------------------
 
         response = (
@@ -208,7 +260,7 @@ def create_item():
         )
 
         # --------------------------------------------------------
-        # 7. Return created item
+        # 8. Return created item
         # --------------------------------------------------------
 
         return jsonify({
@@ -222,7 +274,6 @@ def create_item():
             "status": "error",
             "message": str(e)
         }), 500
-
 
 # ============================================================
 # GET / SEARCH / FILTER ITEMS

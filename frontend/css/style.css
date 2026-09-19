@@ -5108,11 +5108,28 @@ footer p {
     position: absolute;
     top: 12px;
     right: 12px;
-    padding: 5px 8px;
-    border-radius: 5px;
-    font-size: 7px;
-    font-weight: 800;
-    letter-spacing: .8px;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    background: white;
+    z-index: 2;
+    white-space: nowrap;
+}
+
+.item-status.lost {
+    color: #e53935;
+    background: #fff1f1;
+}
+
+.item-status.found {
+    color: #2e7d32;
+    background: #effaf3;
+}
+
+.item-status.returned {
+    color: #1565c0;
+    background: #e3f2fd;
 }
 
 .item-status.lost {
@@ -5123,6 +5140,10 @@ footer p {
 .item-status.found {
     background: #edf9f3;
     color: #32835b;
+}
+.item-status.returned {
+    color: #1565c0;
+    background: #e3f2fd;
 }
 
 .item-content {
@@ -7205,4 +7226,29 @@ body:has(.report-hero) footer {
     .report-sidebar {
         grid-template-columns: 1fr !important;
     }
+}
+/* Item Details Uploaded Photo */
+.details-item-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+    display: block;
+}
+/* Browse Items - Uploaded Photo */
+.item-card-photo {
+    width: 100%;
+    height: 220px;
+    object-fit: contain;
+    display: block;
+    border-radius: 12px;
+}
+
+.item-image {
+    height: 220px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

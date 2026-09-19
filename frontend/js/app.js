@@ -92,7 +92,15 @@ if (searchInput && categoryFilter && statusFilter && itemsGrid) {
         items.forEach(function (item) {
 
             const type = (item.type || "lost").toLowerCase();
+            let displayStatus = "";
 
+            if (String(item.status || "").toUpperCase() === "RETURNED") {
+                displayStatus = "RETURNED";
+            } else {
+                    displayStatus = String(item.type || "").toUpperCase();
+            }
+
+            const displayStatusClass = displayStatus.toLowerCase();
             const card = document.createElement("article");
 
             card.className = "item-card";
@@ -104,19 +112,23 @@ if (searchInput && categoryFilter && statusFilter && itemsGrid) {
 
             card.innerHTML = `
                 <div class="item-image ${getImageClass(item.category)}">
-                    ${getItemIcon(item.category)}
+                     ${
+                          item.image_url
+                               ? `<img src="${item.image_url}" alt="${item.title || "Item image"}" class="item-card-photo">`
+                               : getItemIcon(item.category)
+                    }
+
+                    <span class="item-status ${displayStatusClass}">
+                        ${escapeHTML(displayStatus)}
+                    </span>
                 </div>
 
                 <div class="item-card-body">
 
                     <div class="item-card-top">
 
-                        <span class="item-status ${type === "found" ? "found-status" : "lost-status"}">
-                            ${escapeHTML(type.toUpperCase())}
-                        </span>
-
                         <span class="item-date">
-                            ${escapeHTML(formatDate(item.date))}
+                             ${escapeHTML(formatDate(item.date))}
                         </span>
 
                     </div>
@@ -398,7 +410,7 @@ if (registerForm) {
 }
 
 
-    /* =====================================================
+  /* =====================================================
    4. REPORT ITEM FORM
    ===================================================== */
 
@@ -425,10 +437,19 @@ if (reportForm) {
         const date =
             document.getElementById("date").value;
 
+        const selectedReportType =
+            reportForm.querySelector(
+         'input[name="reportType"]:checked'
+            );
+
         const reportType =
-            document.querySelector(
-                'input[name="reportType"]:checked'
-            )?.value;
+          selectedReportType ? selectedReportType.value : "";
+
+        const imageInput =
+            document.getElementById("itemImage");
+
+        const imageFile =
+            imageInput?.files?.[0] || null;
 
         if (!itemName || !description || !category || !location || !date) {
             alert("Please fill in all required fields.");
@@ -451,22 +472,31 @@ if (reportForm) {
 
         try {
 
+            /* Create FormData */
+
+            const formData = new FormData();
+
+            formData.append("type", reportType);
+            formData.append("title", itemName);
+            formData.append("description", description);
+            formData.append("category", category);
+            formData.append("location", location);
+            formData.append("date", date);
+
+            /* Add image only if selected */
+
+            if (imageFile) {
+                formData.append("itemImage", imageFile);
+            }
+            console.log("FormData being sent:", [...formData.entries()]);
             const response = await fetch(
                 "http://127.0.0.1:5000/api/items",
                 {
                     method: "POST",
                     headers: {
-                        "Content-Type": "application/json",
                         "Authorization": "Bearer " + token
                     },
-                    body: JSON.stringify({
-                        type: reportType,
-                        title: itemName,
-                        description: description,
-                        category: category,
-                        location: location,
-                        date: date
-                    })
+                    body: formData
                 }
             );
 
@@ -481,7 +511,9 @@ if (reportForm) {
                 return;
             }
 
-            alert("Your item report has been submitted successfully!");
+            alert(
+                "Your item report has been submitted successfully!"
+            );
 
             reportForm.reset();
 
@@ -496,7 +528,6 @@ if (reportForm) {
 
     });
 }
-
 
     /* =====================================================
        5. GENERIC FORM SUPPORT
@@ -809,12 +840,34 @@ if (detailsImage) {
             ? "FOUND ITEM"
             : "LOST ITEM";
 
-    detailsImage.innerHTML = `
-        ${icon}
-        <span class="details-status ${statusClass}">
-            ${statusText}
-        </span>
-    `;
+    /* Show uploaded image if available */
+
+    if (item.image_url) {
+
+        detailsImage.innerHTML = `
+            <img
+                src="${item.image_url}"
+                alt="${item.title || "Item image"}"
+                class="details-item-photo"
+            >
+
+            <span class="details-status ${statusClass}">
+                ${statusText}
+            </span>
+        `;
+
+    } else {
+
+        /* Fallback to category icon */
+
+        detailsImage.innerHTML = `
+            ${icon}
+
+            <span class="details-status ${statusClass}">
+                ${statusText}
+            </span>
+        `;
+    }
 }
 
 /* ---------- INTRO ---------- */
@@ -1001,7 +1054,25 @@ if (contactOwnerBtn && contactPanel) {
     });
 
 }
+const claimItemBtn =
+    document.getElementById("claimItemBtn");
 
+if (claimItemBtn && contactPanel) {
+
+    claimItemBtn.addEventListener("click", function () {
+
+        contactPanel.style.display = "block";
+
+        claimItemBtn.style.display = "none";
+
+        contactPanel.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+
+    });
+
+}
 if (contactForm) {
 
     contactForm.addEventListener("submit", async function (event) {
